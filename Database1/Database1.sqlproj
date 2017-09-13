@@ -4,20 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Senparc.Database</Name>
+    <Name>Database1</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{99bf5a6d-0c5f-4067-ba14-5241ef9e8840}</ProjectGuid>
+    <ProjectGuid>{43caaddc-7356-46c0-b215-c0bab2b2cc22}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Senparc.Database</RootNamespace>
-    <AssemblyName>Senparc.Database</AssemblyName>
+    <RootNamespace>Database1</RootNamespace>
+    <AssemblyName>Database1</AssemblyName>
     <ModelCollation>2052,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -59,25 +59,5 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="dbo\" />
-    <Folder Include="dbo\Tables\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="dbo\Tables\Account.sql" />
-    <Build Include="dbo\Tables\Address.sql" />
-    <Build Include="dbo\Tables\AdminUserInfo.sql" />
-    <Build Include="dbo\Tables\APP_RedPackage_Activity.sql" />
-    <Build Include="dbo\Tables\APP_RedPackage_Activity_Award.sql" />
-    <Build Include="dbo\Tables\APP_RedPackage_Activity_Award_Log.sql" />
-    <Build Include="dbo\Tables\Banner.sql" />
-    <Build Include="dbo\Tables\MessageBox.sql" />
-    <Build Include="dbo\Tables\Notice.sql" />
-    <Build Include="dbo\Tables\Order.sql" />
-    <Build Include="dbo\Tables\SystemConfig.sql" />
-    <Build Include="dbo\Tables\WithdrawLog.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Local.scmp" />
-    <None Include="比较数据库内容.dcmp" />
   </ItemGroup>
 </Project>

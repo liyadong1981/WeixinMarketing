@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senparc.Web", "Senparc.Web\Senparc.Web.csproj", "{E73FAB33-245C-4A2B-8C6F-D5D006B8056E}"
 EndProject
@@ -142,5 +142,8 @@ Global
 		{93B48068-219D-4D12-8B73-11446E69F59C} = {CD6391C4-A0A1-41F9-8B77-4ADA3DAFB944}
 		{17155B76-8FFC-4632-8292-7571394B97AC} = {CD6391C4-A0A1-41F9-8B77-4ADA3DAFB944}
 		{FFECB9C3-DEE7-4441-82E1-DB8E8534B36F} = {CD6391C4-A0A1-41F9-8B77-4ADA3DAFB944}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50BEB09B-22A2-4191-83AA-0BD36763CBE8}
 	EndGlobalSection
 EndGlobal
