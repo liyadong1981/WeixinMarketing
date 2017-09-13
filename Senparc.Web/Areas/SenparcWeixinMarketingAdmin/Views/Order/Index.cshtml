@@ -1,0 +1,57 @@
+﻿@model Senparc.Areas.Admin.Models.VD.Order_IndexVD
+@{
+    ViewBag.Title = "订单列表";
+}
+@section breadcrumbs{
+    <li>
+        @ViewBag.Title
+    </li>
+}
+@using (Html.ContentBox(ViewBag.Title as string@*,
+        "<a href=\"" + Url.Action("Edit") + "\"><i class=\"fa fa-plus\"></i></a>"*@))
+{
+    <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content bordered-palegreen">
+            <tr class="minwidth t_c">
+                <th>
+                    活动Id
+                </th>
+                <th>
+                    支付金额
+                </th>
+                <th>
+                    订单号
+                </th>
+                <th>
+                    支付时间
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderList)
+            {
+                <tr class="t_c">
+                    <td>@item.Id</td>
+                    <td>@item.PayMoney</td>
+                    <td>@item.OrderNumber</td>
+                    <td>@item.GetPayOrderTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row DTTTFooter">
+        <div class="col-sm-12">
+            <div class="dataTables_paginate paging_bootstrap">
+                @Html.Raw((Html.PagerBar(Model.OrderList, new PagerBarSettings(Url.Action("Index", "Order", new
+           {
+               pageIndex = "{0}"
+           }))
+           {
+               NoRecordTip = "无数据",
+               barStyle = BarStyle.bootstrap,
+               ShowTotalCount = false
+           })))
+            </div>
+        </div>
+    </div>
+}

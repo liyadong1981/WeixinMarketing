@@ -1,0 +1,97 @@
+﻿@model Senparc.Areas.Admin.Models.VD.RedPackageActivity_IndexVD
+@{
+    ViewBag.Title = "活动列表";
+}
+@section breadcrumbs{
+    <li>
+        @ViewBag.Title
+    </li>
+}
+<script>
+    function deleteItem(id) {
+        if (!confirm("确定要删除吗？删除后将无法还原！")) {
+            return;
+        }
+        $("#deleteId").val(id);
+        $("#delete_form").submit();
+    }
+</script>
+<style>
+    .product_serach {
+        width: 60%;
+        margin: 10px 0 20px;
+    }
+</style>
+@using (Html.ContentBox(ViewBag.Title as string,
+    "<a href=\"" + Url.Action("Edit") + "\"><i class=\"fa fa-plus\"></i></a>"))
+{
+    <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content bordered-palegreen">
+            <tr class="minwidth t_c">
+                <th>
+                    Id
+                </th>
+                <th>
+                    活动名称
+                </th>
+                <th>
+                    开始时间
+                </th>
+                <th>
+                    结束时间
+                </th>
+                <th>
+                    活动描述
+                </th>
+                <th>
+                    总金额
+                </th>
+                <th>
+                    余额
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.RedPackageActivityList)
+            {
+                <tr class="t_c">
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.BeginTime.ToString("yyyy/MM/dd HH:mm:ss")</td>
+                    <td>@item.EndTime.ToString("yyyy/MM/dd HH:mm:ss")</td>
+                    <td>@item.Description</td>
+                    <td>@item.TotalMoney.ToString("0.00")</td>
+                    <td>@item.RemainingMoney.ToString("0.00")</td>
+                    <td>
+                        <a href="@Url.Action("Screen", new { id = item.Id })" target="_blank" class="btn btn-blue btn-xs">大屏</a>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @class = "btn btn-blue btn-xs" })
+                        <a href="javascript:void(0);" onclick="return deleteItem('@(item.Id)');" class="btn btn-blue btn-xs">删除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row DTTTFooter">
+        <div class="col-sm-12">
+            <div class="dataTables_paginate paging_bootstrap">
+                @Html.Raw((Html.PagerBar(Model.RedPackageActivityList, new PagerBarSettings(Url.Action("Index", "RedPackageActivity", new
+           {
+               pageIndex = "{0}"
+           }))
+           {
+               NoRecordTip = "无数据",
+               barStyle = BarStyle.bootstrap,
+               ShowTotalCount = false
+           })))
+            </div>
+        </div>
+    </div>
+    using (Html.BeginForm("Delete", "RedPackageActivity", FormMethod.Post, new { id = "delete_form" }))
+    {
+        @Html.Hidden("id", null, new { id = "deleteId" })
+    }
+
+}

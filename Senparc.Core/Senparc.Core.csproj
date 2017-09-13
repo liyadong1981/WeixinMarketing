@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1148B4B-8F72-4EB4-9E27-25BB4430AB68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Senparc.Core</RootNamespace>
+    <AssemblyName>Senparc.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Tests|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Tests\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\AA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test2|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test2\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ProjectOxford.Vision, Version=1.0.370.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ProjectOxford.Vision.1.0.370\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Microsoft.ProjectOxford.Vision.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin, Version=4.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.4.13.1\lib\net45\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.Cache.Redis.RedLock, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.Cache.Redis.RedLock.0.1.1\lib\net45\Senparc.Weixin.Cache.Redis.RedLock.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.14.5.0\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.4\lib\net45\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.1\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Wurfl">
+      <HintPath>..\Assemblies\WURFL\Wurfl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\BaseCache\BaseCache.cs" />
+    <Compile Include="Cache\BaseCache\BaseDictionary\BaseDictionaryCache.cs" />
+    <Compile Include="Cache\BaseCache\BaseDictionary\BaseStringDictionary\BaseStringDictionaryCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cache\BaseCache\CacheStrategyFactory.cs" />
+    <Compile Include="Cache\BaseCache\LocalCacheStrategy.cs" />
+    <Compile Include="Cache\BaseCache\RedisStrategy.cs" />
+    <Compile Include="Cache\BaseCache\Redis\RedisConfigInfo.cs" />
+    <Compile Include="Cache\BaseCache\Redis\RedisManager.cs" />
+    <Compile Include="Cache\BaseCache\Redis\StackExchangeRedisExtensions.cs" />
+    <Compile Include="Cache\CommonCacheAttribute.cs" />
+    <Compile Include="Cache\CommonDataCache.cs" />
+    <Compile Include="Cache\FullAccountWorkFlowCache.cs" />
+    <Compile Include="Cache\FullAccountCache.cs" />
+    <Compile Include="Cache\FullAdminUserInfoCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cache\FullSystemConfigCache.cs" />
+    <Compile Include="Cache\Interface\IBaseCache.cs" />
+    <Compile Include="Cache\Interface\IBaseCacheStrategy.cs" />
+    <Compile Include="Cache\Interface\ICommonDataCache.cs" />
+    <Compile Include="Cache\MethodCache.cs" />
+    <Compile Include="Cache\QueueCache\QueueCache.cs" />
+    <Compile Include="Cache\QueueCache\QueueCacheData.cs" />
+    <Compile Include="Config\SiteConfig.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extensions\ObjectQueryExtensions.cs" />
+    <Compile Include="Lock\BaseCacheLock.cs" />
+    <Compile Include="Lock\ICacheLock.cs" />
+    <Compile Include="Lock\LocalCacheLock.cs" />
+    <Compile Include="Lock\RedisCacheLock.cs" />
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminUserInfo.cs">
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APP_RedPackage_Activity.cs">
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APP_RedPackage_Activity_Award_Log.cs">
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntitySetKeys.cs" />
+    <Compile Include="Models\ExtensionEntity.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Senparc.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Senparc.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Senparc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Senparc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Senparc.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SenparcEntitiesPartial.cs" />
+    <Compile Include="Models\SqlFinanceData\SqlBaseFinanceData.cs" />
+    <Compile Include="Models\SqlFinanceData\SqlClientFinanceData.cs" />
+    <Compile Include="Models\SystemConfig.cs">
+      <DependentUpon>Senparc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VD\BaseVD.cs" />
+    <Compile Include="Models\VD\ErrorVD.cs" />
+    <Compile Include="Models\VD\HomeVD.cs" />
+    <Compile Include="Models\VD\LoginVD.cs" />
+    <Compile Include="Models\WorkFlowModules\ActionValue.cs" />
+    <Compile Include="Models\WorkFlowModules\BaseModules\BaseApiModule.cs" />
+    <Compile Include="Models\WorkFlowModules\BaseModules\BaseModule.cs" />
+    <Compile Include="Models\WorkFlowModules\ApiModules\EmotionApiModule.cs" />
+    <Compile Include="Models\WorkFlowModules\Enums.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\PicContainerParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\VisionApiParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\ApiModules\PicContainerApiModule.cs" />
+    <Compile Include="Models\WorkFlowModules\ApiModules\VisionApiModule.cs" />
+    <Compile Include="Models\WorkFlowModules\ApiModules\FaceApiModule.cs" />
+    <Compile Include="Models\WorkFlowModules\Input.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\EmotionApiParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\Output.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\FaceApiParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\NumberParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\StringParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\BasePicParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\ParaeterSetting\BaseParameterSetting.cs" />
+    <Compile Include="Models\WorkFlowModules\BaseModules\BaseResultModule.cs" />
+    <Compile Include="Models\WorkFlowModules\GradeResultModule.cs" />
+    <Compile Include="Models\WorkFlowModules\RedPackageResultModule.cs" />
+    <Compile Include="Models\WorkFlowModules\ContrastPicModule.cs" />
+    <Compile Include="Models\WorkFlowModules\RegisterImageModule.cs" />
+    <Compile Include="Models\WorkFlowModules\RegisterModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CacheEntity\AutoSetCacheAttribute.cs" />
+    <Compile Include="Utility\CacheEntity\FullEntityCache.cs" />
+    <Compile Include="Utility\Upload.cs" />
+    <Compile Include="Weixin\WeixinFace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Models\Senparc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Senparc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Senparc.edmx.diagram">
+      <DependentUpon>Senparc.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Senparc.Log\Senparc.Log.csproj">
+      <Project>{a58e9bf0-c155-4445-a688-4c96031529b4}</Project>
+      <Name>Senparc.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Utility\Senparc.Utility.csproj">
+      <Project>{ec023b8d-4066-411d-9e74-cc2ec40cf430}</Project>
+      <Name>Senparc.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Senparc.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Senparc.edmx</DependentUpon>
+      <LastGenOutput>Senparc.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Senparc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Senparc.edmx</DependentUpon>
+      <LastGenOutput>Senparc.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cache\Lock\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

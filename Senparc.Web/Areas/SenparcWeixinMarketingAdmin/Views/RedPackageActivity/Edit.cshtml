@@ -1,0 +1,270 @@
+﻿@using Senparc.Core.Models.WorkFlowModules
+@using ServiceStack
+@model Senparc.Areas.Admin.Models.VD.RedPackageActivity_EditVD
+@{
+    ViewBag.Title = "{0}活动详情".With(Model.IsEdit ? "编辑" : "新增");
+    var feelingList = typeof(Emotion_Type).EnumToDictionary();
+}
+@section breadcrumbs{
+    <li>
+        <a href="@Url.Action("Index", "RedPackageActivity")">活动详情</a>
+    </li>
+    <li>
+        @ViewBag.Title
+    </li>
+}
+<link href="~/Areas/SenparcWeixinMarketingAdmin/Content/Css/jedate.css" rel="stylesheet" />
+@section scripts{
+    @*<script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/activity_edit.js"></script>*@
+    <script src="~/Scripts/jquery.form.js"></script>
+    <script src="~/Scripts/vue/vue.js"></script>
+    <script src="~/Scripts/vue/plugin/vue-touch.js"></script>
+    <script src="~/Scripts/vue/plugin/vue-tap.js"></script>
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/jquery.qrcode.min.js"></script> @*动态生成二维码插件*@
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/jedate.min.js"></script> @*时间日期插件*@
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/page.js"></script>
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/Admin_ActivityJs.js"></script>
+    <script>
+        activityVM.moduleTemplateList = @Html.Raw(Model.ModuleTemplateList.SerializeToString());
+        $(function() {
+            //activityVM.moduleSaveJson=[];
+            activityVM.moduleSetting = [];
+
+            activityVM.moduleSetting = @Html.Raw(Model.AppRedPackageActivity.Rule ?? "[]");
+            activityVM.copyModule(); //把activityVM.moduleSetting里的所有的Output数据给activityVM.inputList
+
+            setTimeout(function() {
+                activityVM.displayNextStepEdit();
+            }, 100);
+
+            activityVM.dateTime(); //引用时间日期js
+        });
+    </script>
+}
+<style>
+    .widget {
+        position: relative;
+    }
+</style>
+@using (Html.ContentBox(ViewBag.Title as string))
+{
+    using (Html.BeginForm("Edit", "RedPackageActivity", null, FormMethod.Post, new { enctype = "multipart/form-data", id = "form_activity" }))
+    {
+        @Html.HiddenFor(model => model.AppRedPackageActivity.Id)
+        @Html.HiddenFor(model => model.AppRedPackageActivity.Type, new { value = Activity_Type.摇一摇红包 })
+        @Html.HiddenFor(model => model.AppRedPackageActivity.Rule)
+        <div class="row">
+            <div class="col-lg-7 col-sm-7 col-xs-12">
+                <div class="widget no-header ">
+                    <div class="widget-body colored-purple">
+                        <div id="activity_editor">
+                            <div class="form-group">
+                                <label class="control-label">请选择分类：</label>
+                                @*<span class="input-icon icon-right">*@
+                                <label class="package_classify">
+                                    @Activity_Type.摇一摇红包.ToString()
+                                    <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/package_select_icon.png" />
+                                </label>
+                                @*</span>*@
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label package_title">活动名称：</label>
+                                <span class="input-icon icon-right">
+                                    @Html.TextBoxFor(m => m.AppRedPackageActivity.Name, new { @class = "form-control col-md-4 acticity_name", placeholder = "请输入活动名称" })
+                                    @Html.ValidationMessageFor(model => model.AppRedPackageActivity.Name)
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    余额：@Model.AppRedPackageActivity.RemainingMoney.ToString("C") /
+                                    总金额：<span class="redpackage_totalPrice">@Model.AppRedPackageActivity.TotalMoney.ToString("C")</span>
+                                </span>
+                                <div></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label package_title">充值金额：</label>
+                                <span class="input-icon icon-right">
+                                    <input type="number" id="rechargeMoney" name="AppRedPackageActivity.RemainingMoney" class="form-control col-md-4 package_totalMoney" placeholder="请输入您要充值的金额" value="0" />
+                                </span>
+                            </div>
+                            @*动态生成支付二维码*@
+                            @if (Model.IsEdit)
+                            {
+                                <div class="activity_payCode package_title" v-on="click:hide_payCode()" style="display: none;">
+                                    <div class="packagePayCode">
+                                        <div id="qrCode"></div>
+                                        <p>扫一扫支付二维码，进行充值</p>
+                                    </div>
+                                </div>
+                                <div class="package_paySuccess" style="display: none;">
+                                    <div class="paySuccess_con">
+                                        <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/paySuccess_img.png" />
+                                        <p>充值成功啦</p>
+                                    </div>
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label class="control-label package_title">开始时间：</label>
+                                <span class="input-icon icon-right">
+                                    <input class="form-control col-md-4" data-val="true" id="AppRedPackageActivity_BeginTime" name="AppRedPackageActivity.BeginTime" placeholder="请输入开始时间" type="text" value="@Model.AppRedPackageActivity.BeginTime.ToString("yyyy-MM-dd hh:mm")">
+                                    @Html.ValidationMessageFor(model => model.AppRedPackageActivity.BeginTime)
+                                </span>
+                                <br /><br />
+                                <label class="control-label package_title">结束时间：</label>
+                                <span class="input-icon icon-right">
+                                    <input class="form-control col-md-4" id="AppRedPackageActivity_EndTime" name="AppRedPackageActivity.EndTime" placeholder="请输入结束时间" type="text" value="@Model.AppRedPackageActivity.EndTime.ToString("yyyy-MM-dd hh:mm")">
+                                    @Html.ValidationMessageFor(model => model.AppRedPackageActivity.EndTime)
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label package_title">活动说明：</label>
+                                <span class="input-icon icon-right">
+                                    @Html.TextAreaFor(m => m.AppRedPackageActivity.Description, new { @class = "form-control col-md-4", rows = "8" })
+                                    @Html.ValidationMessageFor(model => model.AppRedPackageActivity.Description)
+                                </span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <input type="button" class="btn btn-blue" value="保存" id="saveProduct" v-on="click:Check()" />
+                    </div>
+                </div>
+            </div>
+            @*//点击保存生成活动二维码*@
+            <div class="packageActivityCode" v-on="click:hide_enlargeCode()" style="display: none;">
+                <div class="package_activityCode">
+                    <div id="activityCode"></div>
+                    <p>扫一扫活动二维码，参与活动！</p>
+                </div>
+            </div>
+            @if (Model.IsEdit)
+            {
+                <div v-on="click:enlargeCode()" class="qrcode">
+                    <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/me_erweima.png" />
+                    <span>活动二维码</span>
+                </div>
+            }
+            <div class="col-lg-5 col-sm-5 col-xs-12">
+                <div class="widget no-header ">
+                    <div class="widget-body colored-purple">
+                        <div class="" id="activity_content">
+                            <label class="control-label package_title">活动流程：</label>
+                            <div class="input-icon icon-right">
+                                <div class="activity_edit">
+                                    <div class="addActivity">
+                                        <div v-repeat="item in moduleSetting">
+                                            <div class="activity_cart">
+                                                <div class="form-group leftCart" data-index="2">
+                                                    <label class="control-label clearfix label_{{item.Type}}" style="width: 100%;">
+                                                        {{item.Name}}
+                                                        <div class="function_icon">
+                                                            <img src="/Areas/SenparcWeixinMarketingAdmin/Content/Images/top_icon.png" class="top_bottom" v-on="click:activity_top($index)" />
+                                                            <img src="/Areas/SenparcWeixinMarketingAdmin/Content/Images/bottom_icon.png" class="top_bottom" v-on="click:activity_bottom($index)" />
+                                                            <i class="fa fa-times darkorange activity_fa" v-on="click:activity_delete($index)"></i>
+                                                        </div>
+                                                    </label>
+                                                    <div class="input-icon icon-right leftCart_detail">
+                                                        <div>
+                                                            <div v-if="item.Input.length>0">
+                                                                <span class="moodInput activityInput">
+                                                                    输入：
+                                                                </span>
+                                                                <div class="select" v-repeat="input in item.Input">
+                                                                    <span v-if="input.ShowType=='ComboBox'">
+                                                                        <select class="moodInputAppend">
+                                                                            <option v-repeat="input in inputList| CheckInputType input item.Id }" data-type="{{input.Type}}">{{input.Name}}</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="package_maxMinMoney clearfix" v-repeat="input in item.Input">
+                                                                    <span v-if="input.ShowType=='TextBox'" data-type="{{input.Type}}" class="prizes_name">
+                                                                        <span>{{input.Name}}</span>
+                                                                        <span class="max_min_money"><input type="text" v-model="input.Value" placeholder="请输入{{input.Name}}" @*class="packageName activityOutput"*@ /></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div v-if="item.__type=='Senparc.Core.Models.WorkFlowModules.PicContainerApiModule, Senparc.Core'" class="uploadImage">
+                                                            <!-- 上传本地图片 -->
+                                                            <label>上传图片：</label><input type="file" name="picContainerApiFile[{{$index}}]" /><br />
+                                                            <div v-if="item.Parameters" class="displayImg">
+                                                                <div>
+                                                                    <img v-attr="src:item.Parameters.Pic" width="100" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div v-if="item.Output.length>0" style="margin-top:10px;">
+                                                            <span>输出：</span>
+                                                            <span class="moodAppend activityOutput">
+                                                                <span v-if="item.Output[0].ShowType!='TextBox'" v-repeat="output in item.Output" data-type="{{output.Type}}">{{output.Name}}&nbsp;</span>
+                                                                <span class="prizes_name" v-if="item.Output[0].ShowType=='TextBox'"><input type="text" v-model="item.Output[0].Value" placeholder="请输入{{item.Output[0].Name}}" class="packageName activityOutput" /></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/Areas/SenparcWeixinMarketingAdmin/Content/Images/nextStep_icon.png" class="nextStep" style="display: none;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*添加奖项*@
+                                    <hr />
+                                    <div class="activity_add">
+                                        <a href="javascript:;" class="a_redPackage">
+                                            <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/prize_add.png" />
+                                            <span>内置流程</span>
+                                        </a>
+                                        <div class="clearfix"></div>
+                                        <div class="activity_select">
+                                            @{var i = 0;}
+                                            @foreach (var item in Model.ModuleTemplateList)
+                                            {
+                                                if (item.Type != Module_Type.EmotionApi && item.Type != Module_Type.VisionApi)
+                                                {
+                                                    <a href="javascript:;" v-on="click:builtInProcess(@i)">@item.Name</a>
+                                                }
+                                                i++;
+                                            }
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <a href="javascript:;" class="a_redPackage">
+                                            <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/prize_add.png" />
+                                            <span>认知服务</span>
+                                        </a>
+                                        <div class="clearfix"></div>
+                                        <div class="activity_select">
+                                            @{var j = 0;}
+                                            @foreach (var item in Model.ModuleTemplateList)
+                                            {
+                                                if (item.Type == Module_Type.EmotionApi || item.Type == Module_Type.VisionApi)
+                                                {
+                                                    <a href="javascript:;" v-on="click:perceivedService(@j)">@item.Name</a>
+                                                }
+                                                j++;
+                                            }
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+}
+<script>
+
+    $(function() {
+        //活动二维码
+        var isEdit = '@Model.IsEdit';
+
+        if (isEdit == "True") {
+            activityVM.activityCode(@Model.AppRedPackageActivity.Id); //活动二维码，在“编辑”状态下显示
+        }
+
+    })
+</script>

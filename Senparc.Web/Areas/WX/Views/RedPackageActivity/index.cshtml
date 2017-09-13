@@ -1,0 +1,101 @@
+﻿@model Senparc.Areas.WX.Models.VD.Account_IndexVD
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section scripts{
+    <script src="~/Scripts/vue/vue.js"></script>
+    <script src="~/Scripts/vue/plugin/vue-touch.js"></script>
+    <script src="~/Scripts/vue/plugin/vue-tap.js"></script>
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/page.js"></script>
+    <script src="~/Areas/WX/Scripts/wxRedPackage.js"></script>
+
+    <script>
+        $(function () {
+            $('.activity_shake img').removeClass('shake_img');
+            startShake();
+
+        });
+        var SHAKE_THRESHOLD = 2100;
+        var last_update = 0;
+        var x = y = z = last_x = last_y = last_z = 0;
+        var canShake = 1;
+
+        function startShake() {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', deviceMotionHandler, false);
+            } else {
+                alert('not support mobile event');
+            }
+            $('#startShakeBtn').hide();
+            $('.activity_action_ing').show();
+        }
+        function deviceMotionHandler(eventData) {
+            $('.activity_shake img').addClass('shake_img');
+            var acceleration = eventData.accelerationIncludingGravity;
+            var curTime = new Date().getTime();
+            if ((curTime - last_update) > 100) {
+                var diffTime = curTime - last_update;
+                last_update = curTime;
+                x = acceleration.x;
+                y = acceleration.y;
+                z = acceleration.z;
+                var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                if (speed > SHAKE_THRESHOLD && canShake == 1) {
+                    activityVM.shake();   //传递Id
+                }
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }
+    </script>
+}
+<div class="activity">
+    <img class="activity_title" src="/Areas/WX/Content/images/activity_til.png">
+    <div class="sys_msg" id="sys_msg" style="display: none;">
+        <p>您还可以再摇一次</p>
+    </div>
+    <div class="activity_shake" v-on="click:shake()">
+        <img src="/Areas/WX/Content/images/shake.png">
+    </div>
+    <div class="activity_btm">
+        <img src="/Areas/WX/Content/images/activity_btm.png" />
+    </div>
+    <div class="activity_action">
+        <button class="activity_btn" v-on="click:showActivityShare()">分享</button>
+    </div>
+</div>
+<div class="tip_share" id="activityShare" style="display: none;" v-on="click:hideActivityShare()">
+    <img class="share_img" src="/Areas/WX/Content/images/tip.png" />
+</div>
+<div class="tip" id="tip_nomoney" style="display: none;">
+    <div class="reward_res" style="margin-top:0;">
+        <img class="reward_res_icon" src="/Areas/WX/Content/images/box_line.png" v-on="click:hideEmptyPacket()" />
+        <div class="reward_res_con box">
+            <div class="box_header">
+                <p>很遗憾，您没有摇到红包！</p>
+                <img src="/Areas/WX/Content/images/no_redpack.png" />
+            </div>
+            <div class="box_bottom">
+                姿势不对哦，继续努力！
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tip" id="tip_money" style="display: none;">
+    <div class="reward_res">
+        <img class="reward_res_icon" src="/Areas/WX/Content/images/box_line.png" v-on="click:hideRedPacket()" />
+        <div class="reward_res_con money_box">
+            <div class="box_header">
+                <p>恭喜您成功摇得红包</p>
+                <img src="/Areas/WX/Content/images/moeny.png" />
+            </div>
+            <div class="box_bottom">
+                <a href="@Url.Action("SubmitPerMsg", "RedPackageActivity")">
+                    填写信息，领取红包
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

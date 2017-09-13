@@ -1,0 +1,30 @@
+﻿@model Senparc.Areas.WX.Models.VD.RedPackageActivity_RedPacketLogVD
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "RedPacketLog";
+}
+@section scripts{
+}
+<style>
+
+</style>
+<div class="record">
+    <img class="record_til" src="/Areas/WX/Content/images/record.png" />
+    <div class="record_list">
+        @foreach (var item in Model.AppRedPackageActivityAwardLog)
+        {
+            <div class="record_item">
+                <p class="record_item_date">@item.AddTime.ToString("yyyy-MM-dd HH:mm:ss")</p>
+                <div>
+                    <div class="record_item_hd">
+                        <p>@item.APP_RedPackage_Activity.Name</p>
+                    </div>
+                    <div class="record_item_bd">
+                        <p>@item.AwardName</p>
+                    </div>
+                    <div class="record_item_ft">@item.Money.ToString("0.00")</div> 
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c0c8b7515f3f443b9f294a06e8cf6c50" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="Senparc.Model.Account" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="Senparc.Model.AdminUserInfo" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Senparc.Model.APP_RedPackage_Activity" Width="1.5" PointX="0.75" PointY="10.625" />
+        <EntityTypeShape EntityType="Senparc.Model.APP_RedPackage_Activity_Award_Log" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="Senparc.Model.Order" Width="1.5" PointX="6" PointY="3.125" />
+        <EntityTypeShape EntityType="Senparc.Model.SystemConfig" Width="1.5" PointX="2.75" PointY="0.75" />
+        <AssociationConnector Association="Senparc.Model.FK_Account_APP_RedPackage_Activity_Award_Log" />
+        <AssociationConnector Association="Senparc.Model.FK_Account_Order" />
+        <AssociationConnector Association="Senparc.Model.FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log" />
+        <AssociationConnector Association="Senparc.Model.FK_APP_RedPackage_Activity_Order" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

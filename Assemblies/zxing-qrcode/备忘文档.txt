@@ -1,0 +1,13 @@
+http://zxingnet.codeplex.com/
+
+
+http://www.camnpr.com/archives/501.html
+
+源代码中有两处UTF-8的问题，会导致乱码，
+其一：com.google.zxing.qrcode.encoder.encoder类中的
+internal const System.String DEFAULT_BYTE_MODE_ENCODING = "ISO-8859-1";
+此处，将ISO-8859-1改为UTF-8
+其二：com.google.zxing.qrcode.decoder.DecodedBitStreamParser类的成员
+private const System.String UTF8 = "UTF8";
+应将UTF8改为UTF-8
+来源：http://blog.csdn.net/NickWar/archive/2010/06/21/5684134.aspx

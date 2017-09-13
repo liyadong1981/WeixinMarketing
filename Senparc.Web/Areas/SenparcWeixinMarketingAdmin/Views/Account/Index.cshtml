@@ -1,0 +1,110 @@
+﻿@model Senparc.Areas.Admin.Models.VD.Account_IndexVD
+@{
+    ViewBag.Title = "用户列表";
+}
+@section breadcrumbs{
+    <li>
+        @ViewBag.Title
+    </li>
+}
+
+@section scripts{
+    <script>
+        function deleteItem(id) {
+            if (!confirm("确定要删除吗？删除后将无法还原！")) {
+                return;
+            }
+            $("#deleteId").val(id);
+            $("#delete_form").submit();
+        }
+    </script>
+}
+
+@using (Html.ContentBox(ViewBag.Title as string, "<a></a>"))
+{
+    <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content bordered-palegreen">
+            <tr class="minwidth t_c">
+                <th>
+                    #
+                </th>
+                <th>
+                    Id
+                </th>
+                <th>
+                    头像
+                </th>
+                <th>
+                    注册时间
+                </th>
+                <th>
+                    昵称
+                </th>
+                <th>
+                    性别
+                </th>
+                <th>
+                    电话
+                </th>
+                <th>
+                    QQ
+                </th>
+                <th>
+                    邮箱
+                </th>
+                <th>
+                    钱包
+                </th>
+                <th>
+                    备注
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+            }
+            @foreach (var item in Model.AccountList)
+            {
+                <tr class="t_c">
+                    <td>@(Model.AccountList.TotalCount - Model.AccountList.SkipCount - (i++))</td>
+                    <td>@(item.Id)</td>
+                    <td><img src="@item.HeadImgUrl" class="imgStyle"/><br/>
+                        <br/>
+
+                    </td>
+                    <td>@item.AddTime.AddHours(8).ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@item.NickName</td>
+                    <td>@((Sex)item.Sex)</td>
+                    <td>@item.Tel</td>
+                    <td>@item.QQ</td>
+                    <td>@item.Email</td>
+                    <td>@item.Wallet</td>
+                    <td class="noteWidth">@item.Note</td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @class = "btn btn-blue btn-xs" })
+                        <a href="javascript:void(0);" onclick="return deleteItem('@(item.Id)');" class="btn btn-blue btn-xs">删除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        <div class="row DTTTFooter">
+            <div class="col-sm-12">
+                <div class="dataTables_paginate paging_bootstrap">
+                    @Html.Raw((Html.PagerBar(Model.AccountList, new PagerBarSettings(Url.Action("Index", "Account", new
+               {
+                   pageIndex = "{0}"
+               }))
+               {
+                   NoRecordTip = "无数据",
+                   barStyle = BarStyle.bootstrap,
+                   ShowTotalCount = false
+               })))
+                </div>
+            </div>
+        </div>
+                }

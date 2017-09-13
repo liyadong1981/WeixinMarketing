@@ -1,0 +1,89 @@
+﻿@model Senparc.Areas.WX.Models.VD.RedPackageActivity_ItemVD
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "GetRedPacket";
+}
+@section scripts{
+    <script src="~/Areas/WX/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Areas/WX/Scripts/jquery.raty.min.js"></script>
+    <script>
+        $(function () {
+            var score=@Model.ParameteValue.ToString("0");
+            $.fn.raty.defaults.path = '/Areas/WX/Content/images/img';
+            $('#numberMax').raty({
+                readOnly: true,
+                numberMax: 5,
+                number: 500,
+                score: parseFloat(score/20),
+                cancel   : true,
+                half     : true,
+                size     : 24,
+                starHalf: 'star-half-big.png',
+                starOff: 'star-off-big.png',
+                starOn: 'star-on-big.png',
+                precision: true
+            });
+        });
+        function getRedPacket() {
+            showRedPacket();
+        }
+        //显示
+        function showRedPacket() {
+            $('#RedPacket_money').show();
+        }
+
+        //隐藏活动分享提示
+        function hideRedPacket() {
+            $('#RedPacket_money').hide();
+        }
+
+    </script>
+}
+<style>
+</style>
+@if (Model.ResultModule.Type == Module_Type.RedPackageResult)
+{
+    <div class="redPacket">
+        <div class="getRP_img">
+            <img class="redPacket_con_bg" src="/Areas/WX/Content/images/reward_box.png" />
+        </div>
+        <div class="redPacket_con">
+            <div class="redPacket_con_img">
+                <img class="redPacket_img" src="/Areas/WX/Content/images/moeny.png" />
+            </div>
+            <div class="redPacket_money">
+                恭喜您拆得<span id="redPacket_receiveMoney">@Model.AppRedPackageActivityAwardLog.Money</span>元红包
+            </div>
+            <div class="redPacket_record">
+                <p style="margin: 0; font-size: 14px;padding: 2% 0;"><span style="font-weight: bold;">@Model.ParameteName</span> 指数 </p>
+                <p style="margin: 0 auto;" id="numberMax"></p>
+            </div>
+        </div>
+        <div class="redPacket_btn">
+            <a href="@Url.Action("RedPacketLog", "RedPackageActivity", new { })">
+                查看红包记录
+            </a>
+        </div>
+    </div>
+}
+else if (Model.ResultModule.Type == Module_Type.GradeResult)
+{
+    <div class="redPacket">
+        <div class="getRP_img">
+            <img class="redPacket_con_bg" src="/Areas/WX/Content/images/expression_box.png" />
+        </div>
+        <div class="expession_con">
+            <div class="redPacket_money">
+                <span id="redPacket_score">@Model.AppRedPackageActivityAwardLog.Money.ToString("0.00")</span>
+            </div>
+        </div>
+        <div class="redPacket_btn">
+            <a href="@Url.Action("RedPacketLog", "RedPackageActivity", new { })">
+                查看记录
+            </a>
+        </div>
+    </div>
+
+}
+
+

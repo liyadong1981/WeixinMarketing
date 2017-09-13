@@ -1,0 +1,30 @@
+﻿@*@model Senparc.Areas.WX.Models.VD.Account_IndexVD*@
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "SubmitPerMsg";
+}
+@section scripts{
+    <script src="~/Scripts/vue/vue.js"></script>
+    <script src="~/Scripts/vue/plugin/vue-touch.js"></script>
+    <script src="~/Scripts/vue/plugin/vue-tap.js"></script>
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/page.js"></script>
+    <script src="~/Areas/WX/Scripts/wxRedPackage.js"></script>
+
+    <script>
+        
+    </script>
+}
+<div class="info">
+    <div class="info_header" v-on="click:activity_choosePersonalImg()">
+        <img src="/Areas/WX/Content/images/per_img.png" id="img_personalImgUrl" />
+        <p>上传个人照片</p>
+    </div>
+    <div class="info_form">
+        <input class="info_form_input" id="info_name" placeholder="请输入您的真实姓名" type="text" />
+        <input class="info_form_input" id="info_phone" placeholder="请输入您的手机号" type="text" />
+        <button class="info_form_input info_form_btn" v-on="click:submitPerMsg()">提交</button>
+    </div>
+    <div class="info_note">
+        注：提交信息三个工作日之后会有工作人员联系您，发放奖品。
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@model Senparc.Areas.Admin.Models.VD.RedPackageActivityAwardLog_IndexVD
+@{
+    ViewBag.Title = "奖品记录";
+}
+@section breadcrumbs{
+    <li>
+        @ViewBag.Title
+    </li>
+}
+<script>
+    function deleteItem(id) {
+        if (!confirm("确定要删除吗？删除后将无法还原！")) {
+            return;
+        }
+        $("#deleteId").val(id);
+        $("#delete_form").submit();
+    }
+</script>
+
+<style>
+    .product_serach {
+        width: 60%;
+        margin: 10px 0 20px;
+    }
+</style>
+
+@using (Html.ContentBox(ViewBag.Title as string))
+{
+    <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content bordered-palegreen">
+            <tr class="minwidth t_c">
+                <th>
+                    Id
+                </th>
+                <th>
+                    活动Id
+                </th>
+                <th>
+                    用户名
+                </th>
+                <th>
+                    奖项名称
+                </th>
+                <th>
+                    中奖金额
+                </th>
+                <th>
+                    活动名称
+                </th>
+                <th>
+                    奖品名称
+                </th>
+                <th>
+                    中奖时间
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.RedPackageActivityAwardLogList)
+            {
+                <tr class="t_c">
+                    <td>@item.Id</td>
+                    <td>@item.ActivityId</td>
+                    <td>@item.Account.NickName</td>
+                    <td>@item.AwardName</td>
+                    <td>@item.Money</td>
+                    <td>@item.APP_RedPackage_Activity.Name</td>
+                    <td>@item.AwardName</td>
+                    <td>@item.AddTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row DTTTFooter">
+        <div class="col-sm-12">
+            <div class="dataTables_paginate paging_bootstrap">
+                @Html.Raw((Html.PagerBar(Model.RedPackageActivityAwardLogList, new PagerBarSettings(Url.Action("Index", "RedPackageActivityAwardLog", new
+           {
+               pageIndex = "{0}"
+           }))
+           {
+               NoRecordTip = "无数据",
+               barStyle = BarStyle.bootstrap,
+               ShowTotalCount = false
+           })))
+            </div>
+        </div>
+    </div>
+    using (Html.BeginForm("Delete", "RedPackageActivityAwardLog", FormMethod.Post, new { id = "delete_form" }))
+    {
+        @Html.Hidden("id", null, new { id = "deleteId" })
+    }
+
+}

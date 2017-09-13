@@ -1,0 +1,56 @@
+﻿@model Senparc.Core.Models.VD.Error_ExceptionVD
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Empty.cshtml";
+    //Layout = null;
+    ViewBag.Title = "错误";
+}
+@section HeaderContent{
+}
+@section scripts{
+    <script>
+        setTimeout(function () {
+            location.href = '/WX' + location.search;
+        }, 3000);
+    </script>
+}
+
+<style>
+    body {
+        margin: 0;
+        padding: 4%;
+        height: 100%;
+        width: 92%;
+        overflow: auto;
+        background-color: #f13656;
+        color: #fff;
+        font-family: 'Microsoft YaHei';
+        letter-spacing: 1px;
+    }
+
+    .page {
+    }
+
+    .check {
+        text-align: center;
+        margin-top: 24%;
+    }
+
+        .check img {
+            width: 55%;
+            margin-right: 10%;
+        }
+
+        .check p {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-left: 2%;
+            color: #fff;
+            font-family: "microsoft Yahei" !important;
+        }
+</style>
+<div class="page">
+    <div class="check">
+        <img src="~/Areas/WX/Content/images/img/error_img.png" />
+        <p>@Model.HandleErrorInfo.Exception.Message</p>
+    </div>
+</div>

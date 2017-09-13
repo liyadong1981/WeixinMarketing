@@ -1,0 +1,91 @@
+﻿@model Senparc.Areas.Admin.Models.VD.Account_EditVD
+@{
+    ViewBag.Title = "编辑用户信息";
+}
+@section breadcrumbs{
+    <li>
+        <a href="@Url.Action("Index", "Account")">用户详情</a>
+    </li>
+    <li>
+        @ViewBag.Title
+    </li>
+}
+@section scripts{
+}
+<style>
+    .Account_width {
+        width: 200px;
+        display: inline-block;
+    }
+</style>
+@using (Html.ContentBox(ViewBag.Title as string))
+{
+    using (Html.BeginForm("Edit", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(model => model.Account.Id)
+
+        <div class="form-group">
+            <span class="control-label">性别：</span>
+            <div class="input-icon icon-right">
+                <label>
+                    @Html.DropDownListFormEnumFor(m => m.Account.Sex, typeof(Sex))
+                    @Html.ValidationMessageFor(model => model.Account.Sex)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label">真实姓名：</span>
+            <div class="input-icon icon-right">
+                <label>
+                    @Html.TextBoxFor(m => m.Account.RealName, new { @class = "form-control col-md-4" })
+                    @Html.ValidationMessageFor(model => model.Account.RealName)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label">昵称：</span>
+            <div class="input-icon icon-right">
+                <label>
+                    <span class="form-control Account_width  bgColor">@Model.Account.NickName</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">联系电话：</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.Account.Tel, new { @class = "form-control col-md-4" })
+                @Html.ValidationMessageFor(model => model.Account.Tel)
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">QQ：</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.Account.QQ, new { @class = "form-control col-md-4" })
+                @Html.ValidationMessageFor(model => model.Account.QQ)
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">邮箱：</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.Account.Email, new { @class = "form-control col-md-4" })
+                @Html.ValidationMessageFor(model => model.Account.Email)
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="control-label">WeixinOpenId：</span>
+            <div class="input-icon icon-right">
+                <label>
+                    <span class="form-control bgColor">@Model.Account.WeixinOpenId</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">备注：</label>
+            <span class="input-icon icon-right">
+                @Html.TextAreaFor(m => m.Account.Note, new { @class = "form-control col-md-4 noteWidth_Edit", rows = "8" })
+                @Html.ValidationMessageFor(model => model.Account.Note)
+            </span>
+        </div>
+        <input type="submit" class="btn btn-blue" value="保存" />
+    }
+}

@@ -1,0 +1,117 @@
+﻿@model Senparc.Areas.WX.Models.VD.IBaseWXVD
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>@Model.FullSystemConfig.SystemName</title>
+    <meta name="keywords" content="Model.FullSystemConfig.SystemName" />
+    <meta name="description" content="Model.FullSystemConfig.SystemName" />
+    <meta name="author" content="Senparc" />
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Model.FullSystemConfig.SystemName" />
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!--<link rel="icon" sizes="192x192" href="" />-->
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <!--<meta name="msapplication-TileImage" content="{{assets}}i/app-icon72x72@2x.png" />-->
+    <meta name="msapplication-TileColor" content="#0e90d2" />
+    <meta name="full-screen" content="yes" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit" />
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="adress=no" />
+    <link href="/Areas/WX/Content/css/redpacket.css" rel="stylesheet" />
+    <script src="~/Areas/WX/Scripts/jquery-1.9.1.min.js"></script>
+    @RenderSection("HeaderContent", false)
+    @Scripts.Render("~/bundles/wx/js")
+</head>
+<body>
+    <div id="error_message" class="weui_toptips weui_warn"></div>
+    <div id="tip_message" class="tip_msg">
+        <span></span>
+    </div>
+    <div id="loadingToast" class="weui_loading_toast" style="display: none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <div class="weui_loading">
+                <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+            </div>
+            <p class="weui_toast_content">数据加载中</p>
+        </div>
+    </div>
+    <div id="toast_complate" style="display: none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <i class="weui_icon_toast"></i>
+            <p class="weui_toast_content">已完成</p>
+        </div>
+    </div>
+    <div class="weui_dialog_confirm" id="weui_dialog_confirm_template" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="dialog">
+            <div class="weui_dialog">
+                <div class="weui_dialog_hd">
+                    <strong class="weui_dialog_title">#Title</strong>
+                </div>
+                <div class="weui_dialog_bd" id="weui_dialog_confirm_template_content">#Content</div>
+                <div class="weui_dialog_ft">
+                    <a href="javascript:;" class="weui_btn_dialog default" onclick="$(weui_dialog_confirm_template).hide()">取消</a>
+                    <a href="javascript:;" class="weui_btn_dialog primary" id="weui_btn_confirm_sure" onclick="$(weui_dialog_confirm_template).hide()">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui_dialog_alert" id="weui_dialog_alert_template" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd">
+                <strong class="weui_dialog_title">#Title</strong>
+            </div>
+            <div class="weui_dialog_bd" id="weui_dialog_alert_template_content">#Content</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_btn_dialog primary" onclick="$(weui_dialog_alert_template).hide()">确定</a>
+            </div>
+        </div>
+    </div>
+    <div id="weui_toast_success_template" style="display: none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <i class="weui_icon_toast"></i>
+            <p class="weui_toast_content">#Content</p>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        @RenderBody()
+    </div>
+    
+    @Scripts.Render("http://res.wx.qq.com/open/js/jweixin-1.1.0.js")
+    @RenderSection("scripts", false)
+    @Scripts.Render("~/bundles/globaljs")
+
+    <div class="footer">
+        <span>© 2017 盛派网络科技有限公司 Senparc </span>
+    </div>
+</body>
+</html>

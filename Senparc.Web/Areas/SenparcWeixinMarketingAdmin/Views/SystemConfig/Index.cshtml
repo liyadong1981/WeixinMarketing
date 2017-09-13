@@ -1,0 +1,23 @@
+﻿@model Senparc.Areas.Admin.Models.VD.SystemConfig_IndexVD
+@{
+    ViewBag.Title = "系统设置";
+}
+@section breadcrumbs{
+    <li>@ViewBag.Title</li>
+}
+@using (Html.ContentBox(ViewBag.Title as string))
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.SystemConfig.Id)
+        <div class="form-group">
+            <label class="control-label">系统名称</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.SystemConfig.SystemName, new { @class = "form-control", placeholder = "系统名称" })
+                @Html.ValidationMessageFor(model => model.SystemConfig.SystemName)
+            </span>
+        </div>
+        
+        <input type="submit" class=" btn btn-blue" value="保存" style="margin-top:20px;" />
+    }
+}

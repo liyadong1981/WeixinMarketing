@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Senparc.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="EmailChecked" Type="bit" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneChecked" Type="bit" Nullable="false" />
+          <Property Name="WeixinOpenId" Type="varchar" MaxLength="100" />
+          <Property Name="PicUrl" Type="varchar" MaxLength="200" />
+          <Property Name="HeadImgUrl" Type="varchar" MaxLength="200" />
+          <Property Name="Sex" Type="tinyint" Nullable="false" />
+          <Property Name="QQ" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" />
+          <Property Name="Province" Type="nvarchar" MaxLength="20" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" />
+          <Property Name="District" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="ThisLoginTime" Type="datetime" Nullable="false" />
+          <Property Name="ThisLoginIP" Type="varchar" MaxLength="50" />
+          <Property Name="LastLoginTime" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginIP" Type="varchar" MaxLength="50" />
+          <Property Name="LastWeixinSignInTime" Type="datetime" />
+          <Property Name="Wallet" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminUserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThisLoginTime" Type="datetime" Nullable="false" />
+          <Property Name="ThisLoginIP" Type="varchar" MaxLength="50" />
+          <Property Name="LastLoginTime" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginIP" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="AddIP" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateIP" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="APP_RedPackage_Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="PicUrl" Type="varchar" MaxLength="250" />
+          <Property Name="TotalMoney" Type="money" Nullable="false" />
+          <Property Name="Rule" Type="ntext" />
+          <Property Name="RemainingMoney" Type="money" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APP_RedPackage_Activity_Award_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="AwardName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Money" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="RegisterInfo" Type="ntext" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TotalPrice" Type="money" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="PayMoney" Type="money" Nullable="false" />
+          <Property Name="CompleteTime" Type="datetime" Nullable="false" />
+          <Property Name="GetPayOrderTime" Type="datetime" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="PrepayId" Type="varchar" MaxLength="100" />
+          <Property Name="PrepayCodeUrl" Type="varchar" MaxLength="100" />
+          <Property Name="PayType" Type="int" Nullable="false" />
+          <Property Name="OrderType" Type="int" Nullable="false" />
+          <Property Name="PayParam" Type="ntext" />
+          <Property Name="AddIp" Type="varchar" MaxLength="50" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SystemName" Type="varchar" MaxLength="150" />
+          <Property Name="MchId" Type="varchar" MaxLength="20" />
+          <Property Name="MchKey" Type="varchar" MaxLength="150" />
+          <Property Name="TenPayAppId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Account_APP_RedPackage_Activity_Award_Log">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="APP_RedPackage_Activity_Award_Log" Type="Self.APP_RedPackage_Activity_Award_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APP_RedPackage_Activity_Award_Log">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Order">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log">
+          <End Role="APP_RedPackage_Activity" Type="Self.APP_RedPackage_Activity" Multiplicity="1" />
+          <End Role="APP_RedPackage_Activity_Award_Log" Type="Self.APP_RedPackage_Activity_Award_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APP_RedPackage_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APP_RedPackage_Activity_Award_Log">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_RedPackage_Activity_Order">
+          <End Role="APP_RedPackage_Activity" Type="Self.APP_RedPackage_Activity" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APP_RedPackage_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SenparcModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminUserInfo" EntityType="Self.AdminUserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_RedPackage_Activity" EntityType="Self.APP_RedPackage_Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_RedPackage_Activity_Award_Log" EntityType="Self.APP_RedPackage_Activity_Award_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemConfig" EntityType="Self.SystemConfig" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_APP_RedPackage_Activity_Award_Log" Association="Self.FK_Account_APP_RedPackage_Activity_Award_Log">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="APP_RedPackage_Activity_Award_Log" EntitySet="APP_RedPackage_Activity_Award_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Order" Association="Self.FK_Account_Order">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log" Association="Self.FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log">
+            <End Role="APP_RedPackage_Activity" EntitySet="APP_RedPackage_Activity" />
+            <End Role="APP_RedPackage_Activity_Award_Log" EntitySet="APP_RedPackage_Activity_Award_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_RedPackage_Activity_Order" Association="Self.FK_APP_RedPackage_Activity_Order">
+            <End Role="APP_RedPackage_Activity" EntitySet="APP_RedPackage_Activity" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Senparc.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SenparcEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Senparc.Model.Account" />
+          <EntitySet Name="AdminUserInfoes" EntityType="Senparc.Model.AdminUserInfo" />
+          <EntitySet Name="APP_RedPackage_Activity" EntityType="Senparc.Model.APP_RedPackage_Activity" />
+          <EntitySet Name="APP_RedPackage_Activity_Award_Log" EntityType="Senparc.Model.APP_RedPackage_Activity_Award_Log" />
+          <EntitySet Name="Orders" EntityType="Senparc.Model.Order" />
+          <EntitySet Name="SystemConfigs" EntityType="Senparc.Model.SystemConfig" />
+          <AssociationSet Name="FK_Account_APP_RedPackage_Activity_Award_Log" Association="Senparc.Model.FK_Account_APP_RedPackage_Activity_Award_Log">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="APP_RedPackage_Activity_Award_Log" EntitySet="APP_RedPackage_Activity_Award_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Order" Association="Senparc.Model.FK_Account_Order">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log" Association="Senparc.Model.FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log">
+            <End Role="APP_RedPackage_Activity" EntitySet="APP_RedPackage_Activity" />
+            <End Role="APP_RedPackage_Activity_Award_Log" EntitySet="APP_RedPackage_Activity_Award_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_RedPackage_Activity_Order" Association="Senparc.Model.FK_APP_RedPackage_Activity_Order">
+            <End Role="APP_RedPackage_Activity" EntitySet="APP_RedPackage_Activity" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EmailChecked" Type="Boolean" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneChecked" Type="Boolean" Nullable="false" />
+          <Property Name="WeixinOpenId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PicUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="HeadImgUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Byte" Nullable="false" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="ThisLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ThisLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastWeixinSignInTime" Type="DateTime" Precision="3" />
+          <Property Name="Wallet" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="APP_RedPackage_Activity_Award_Log" Relationship="Senparc.Model.FK_Account_APP_RedPackage_Activity_Award_Log" FromRole="Account" ToRole="APP_RedPackage_Activity_Award_Log" />
+          <NavigationProperty Name="Orders" Relationship="Senparc.Model.FK_Account_Order" FromRole="Account" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="AdminUserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ThisLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ThisLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastLoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="APP_RedPackage_Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TotalMoney" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Rule" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RemainingMoney" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="APP_RedPackage_Activity_Award_Log" Relationship="Senparc.Model.FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log" FromRole="APP_RedPackage_Activity" ToRole="APP_RedPackage_Activity_Award_Log" />
+          <NavigationProperty Name="Orders" Relationship="Senparc.Model.FK_APP_RedPackage_Activity_Order" FromRole="APP_RedPackage_Activity" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="APP_RedPackage_Activity_Award_Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="AwardName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Money" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="RegisterInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Account" Relationship="Senparc.Model.FK_Account_APP_RedPackage_Activity_Award_Log" FromRole="APP_RedPackage_Activity_Award_Log" ToRole="Account" />
+          <NavigationProperty Name="APP_RedPackage_Activity" Relationship="Senparc.Model.FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log" FromRole="APP_RedPackage_Activity_Award_Log" ToRole="APP_RedPackage_Activity" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PayMoney" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="CompleteTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GetPayOrderTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PrepayId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PrepayCodeUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PayType" Type="Int32" Nullable="false" />
+          <Property Name="OrderType" Type="Int32" Nullable="false" />
+          <Property Name="PayParam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Account" Relationship="Senparc.Model.FK_Account_Order" FromRole="Order" ToRole="Account" />
+          <NavigationProperty Name="APP_RedPackage_Activity" Relationship="Senparc.Model.FK_APP_RedPackage_Activity_Order" FromRole="Order" ToRole="APP_RedPackage_Activity" />
+        </EntityType>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SystemName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MchId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MchKey" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TenPayAppId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Account_APP_RedPackage_Activity_Award_Log">
+          <End Type="Senparc.Model.Account" Role="Account" Multiplicity="1" />
+          <End Type="Senparc.Model.APP_RedPackage_Activity_Award_Log" Role="APP_RedPackage_Activity_Award_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APP_RedPackage_Activity_Award_Log">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Order">
+          <End Type="Senparc.Model.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="Senparc.Model.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_RedPackage_Activity_APP_RedPackage_Activity_Award_Log">
+          <End Type="Senparc.Model.APP_RedPackage_Activity" Role="APP_RedPackage_Activity" Multiplicity="1" />
+          <End Type="Senparc.Model.APP_RedPackage_Activity_Award_Log" Role="APP_RedPackage_Activity_Award_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APP_RedPackage_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="APP_RedPackage_Activity_Award_Log">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_RedPackage_Activity_Order">
+          <End Type="Senparc.Model.APP_RedPackage_Activity" Role="APP_RedPackage_Activity" Multiplicity="1" />
+          <End Type="Senparc.Model.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APP_RedPackage_Activity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SenparcModelStoreContainer" CdmEntityContainer="SenparcEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="Senparc.Model.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+                <ScalarProperty Name="LastWeixinSignInTime" ColumnName="LastWeixinSignInTime" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="ThisLoginIP" ColumnName="ThisLoginIP" />
+                <ScalarProperty Name="ThisLoginTime" ColumnName="ThisLoginTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="HeadImgUrl" ColumnName="HeadImgUrl" />
+                <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+                <ScalarProperty Name="WeixinOpenId" ColumnName="WeixinOpenId" />
+                <ScalarProperty Name="PhoneChecked" ColumnName="PhoneChecked" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="EmailChecked" ColumnName="EmailChecked" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminUserInfoes">
+            <EntityTypeMapping TypeName="Senparc.Model.AdminUserInfo">
+              <MappingFragment StoreEntitySet="AdminUserInfo">
+                <ScalarProperty Name="UpdateIP" ColumnName="UpdateIP" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="AddIP" ColumnName="AddIP" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="ThisLoginIP" ColumnName="ThisLoginIP" />
+                <ScalarProperty Name="ThisLoginTime" ColumnName="ThisLoginTime" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_RedPackage_Activity">
+            <EntityTypeMapping TypeName="Senparc.Model.APP_RedPackage_Activity">
+              <MappingFragment StoreEntitySet="APP_RedPackage_Activity">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="RemainingMoney" ColumnName="RemainingMoney" />
+                <ScalarProperty Name="Rule" ColumnName="Rule" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="PicUrl" ColumnName="PicUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_RedPackage_Activity_Award_Log">
+            <EntityTypeMapping TypeName="Senparc.Model.APP_RedPackage_Activity_Award_Log">
+              <MappingFragment StoreEntitySet="APP_RedPackage_Activity_Award_Log">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="RegisterInfo" ColumnName="RegisterInfo" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="AwardName" ColumnName="AwardName" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Senparc.Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="AddIp" ColumnName="AddIp" />
+                <ScalarProperty Name="PayParam" ColumnName="PayParam" />
+                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+                <ScalarProperty Name="PayType" ColumnName="PayType" />
+                <ScalarProperty Name="PrepayCodeUrl" ColumnName="PrepayCodeUrl" />
+                <ScalarProperty Name="PrepayId" ColumnName="PrepayId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GetPayOrderTime" ColumnName="GetPayOrderTime" />
+                <ScalarProperty Name="CompleteTime" ColumnName="CompleteTime" />
+                <ScalarProperty Name="PayMoney" ColumnName="PayMoney" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemConfigs">
+            <EntityTypeMapping TypeName="Senparc.Model.SystemConfig">
+              <MappingFragment StoreEntitySet="SystemConfig">
+                <ScalarProperty Name="TenPayAppId" ColumnName="TenPayAppId" />
+                <ScalarProperty Name="MchKey" ColumnName="MchKey" />
+                <ScalarProperty Name="MchId" ColumnName="MchId" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

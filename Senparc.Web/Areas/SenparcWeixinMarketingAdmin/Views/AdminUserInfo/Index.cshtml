@@ -1,0 +1,84 @@
+﻿@model Senparc.Areas.Admin.Models.VD.AdminUserInfo_IndexVD
+
+@{
+    ViewBag.Title = "管理员列表";
+}
+@section scripts{
+    <script>
+        function deleteItem(id) {
+            if (!confirm("确定要删除吗？删除后将无法还原！")) {
+                return;
+            }
+            $("#deleteId").val(id);
+            $("#delete_form").submit();
+        }
+    </script>
+}
+@section breadcrumbs{
+    <li>
+        @ViewBag.Title
+    </li>
+}
+@using (Html.ContentBox(ViewBag.Title as string,
+    "<a href=\"" + Url.Action("Edit") + "\"><i class=\"fa fa-plus\"></i></a>"))
+{
+    <table class="table table-bordered table-striped table-condensed flip-content">
+        <thead class="flip-content bordered-palegreen">
+            <tr class="minwidth t_c">
+                <th>
+                    用户名
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    性别
+                </th>
+                <th>
+                    电话
+                </th>
+                <th>
+                    备注
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AdminUserInfoList)
+            {
+                <tr class="t_c">
+                    <td>@item.UserName</td>
+                    <td>@item.RealName</td>
+                    <td>@((Sex)item.Sex)</td>
+                    <td>@item.Phone</td>
+                    <td class="noteWidth">@item.Note</td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @class = "btn btn-blue btn-xs" })
+                        <a href="javascript:void(0);" onclick="return deleteItem('@(item.Id)');" class="btn btn-blue btn-xs">删除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row DTTTFooter">
+        <div class="col-sm-12">
+            <div class="dataTables_paginate paging_bootstrap">
+                @Html.Raw((Html.PagerBar(Model.AdminUserInfoList, new PagerBarSettings(Url.Action("Index", "AdminUserInfo", new
+           {
+               pageIndex = "{0}"
+           }))
+           {
+               NoRecordTip = "无数据",
+               barStyle = BarStyle.bootstrap,
+               ShowTotalCount = false
+           })))
+            </div>
+        </div>
+    </div>
+    using (Html.BeginForm("Delete", "AdminUserInfo", FormMethod.Post, new { id = "delete_form" }))
+    {
+        @Html.Hidden("id", null, new { id = "deleteId" })
+    }
+}

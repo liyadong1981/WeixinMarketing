@@ -1,0 +1,68 @@
+ul.ivh-treeview {
+    list-style-type: none;
+    padding-left: 15px;
+    overflow: auto;
+    position: relative;
+}
+
+    ul.ivh-treeview .ivh-treeview-toggle {
+        cursor: pointer;
+        height: 20px;
+        display: inline-block;
+    }
+
+    ul.ivh-treeview input[type=checkbox] {
+        opacity: 1;
+        position: static;
+        left: auto;
+        z-index: 12;
+        width: auto;
+        height: auto;
+        cursor: pointer;
+    }
+
+    ul.ivh-treeview:before {
+        width: 1px;
+        z-index: 1;
+        display: block;
+        content: "";
+        position: absolute;
+        top: -7px;
+        bottom: 11px;
+        left: 0;
+        border-left: 1px solid #999;
+    }
+
+    ul.ivh-treeview li {
+        position: relative;
+    }
+
+        ul.ivh-treeview li:before {
+            display: inline-block;
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: -14px;
+            width: 18px;
+            height: 0;
+            border-top: 1px solid #999;
+            z-index: 1;
+        }
+
+    ul.ivh-treeview span[ivh-treeview-checkbox] {
+        height: 20px;
+        display: inline-block;
+    }
+
+    ul.ivh-treeview div[ivh-treeview-children] {
+        position: relative;
+        padding-left: 9px;
+    }
+
+        ul.ivh-treeview div[ivh-treeview-children] .ivh-treeview {
+            overflow: visible;
+        }
+
+    ul.ivh-treeview li.ivh-treeview-node-leaf .ivh-treeview-twistie-leaf {
+        display: none;
+    }

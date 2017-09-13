@@ -1,0 +1,215 @@
+﻿@model Senparc.Areas.WX.Models.VD.Home_IndexVD
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+<link href="~/Areas/WX/Content/css/weui.css" rel="stylesheet" />
+@section scripts{
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="~/Areas/WX/Scripts/page.js"></script>
+    <script src="~/Areas/WX/Scripts/wxRedPackage.js"></script>
+    <script>
+        //activityVM.init();
+
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '我在玩“摇红包”活动，快来抽奖哦！', // 分享标题
+                link: 'http://azure.Senparc.com/WX?id=' + '@(Model.ActivityId)', // 分享链接
+                imgUrl: 'http://azure.Senparc.com@(Model.FullAccount.HeadImgUrl)', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '我在玩“摇红包”活动，快来抽奖哦！', // 分享标题
+                desc: '我在玩“摇红包”活动，快来抽奖哦！', // 分享描述
+                link: 'http://azure.Senparc.com/WX?id=' + '@(Model.ActivityId)', // 分享链接
+                imgUrl: 'http://azure.Senparc.com@(Model.FullAccount.HeadImgUrl)', // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        });
+
+        activityVM.telNumber();//限制手机号只能输入数字
+
+    </script>
+}
+@*摇一摇抽红包*@
+<div class="redPackageActivity">
+    <div class="activity">
+        <img class="activity_title" src="/Areas/WX/Content/images/activity_til.png">
+        <div class="sys_msg" id="sys_msg" style="display: none;">
+            <p>您还可以再摇一次</p>
+        </div>
+        <div class="activity_shake">
+            <img src="/Areas/WX/Content/images/shake.png">
+        </div>
+        <div class="activity_btm">
+            <img src="/Areas/WX/Content/images/activity_btm.png" />
+        </div>
+        <div class="activity_action">
+            <button class="activity_btn" v-on="click:showActivityShare()">分享</button>
+        </div>
+        
+    </div>
+    <div class="tip_share" id="activityShare" style="display: none;" v-on="click:hideActivityShare()">
+        <img class="share_img" src="/Areas/WX/Content/images/tip.png" />
+    </div>
+    <div class="tip" id="tip_nomoney" style="display: none;">
+        <div class="reward_con">
+            <div class="reward_res" style="margin-top:0;">
+                <img class="reward_res_icon" src="/Areas/WX/Content/images/box_line.png" v-on="click:hideEmptyPacket()" />
+                <div class="reward_res_con box">
+                    <div class="box_header">
+                        <p>很遗憾，您没有摇到红包！</p>
+                        <img src="/Areas/WX/Content/images/no_redpack.png" />
+                    </div>
+                    <div class="box_bottom">
+                        姿势不对哦，继续努力！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tip" id="tip_money" style="display: none;">
+        <div class="reward_con">
+            <div class="reward_res">
+                <img class="reward_res_icon" src="/Areas/WX/Content/images/box_line.png" v-on="click:hideRedPacket()" />
+                <div class="reward_res_con money_box">
+                    <div class="box_header">
+                        <p>恭喜您成功摇得红包</p>
+                        <img src="/Areas/WX/Content/images/moeny.png" />
+                    </div>
+                    <div class="box_bottom" v-on="click:writeMessage(@(Model.ActivityId))">
+                        <a href="javascript:;">
+                            领取红包
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*填写用户个人信息*@
+<div class="info" style="display: none;">
+    <div v-repeat="item in registerMessage" v-loack>
+        <div v-if="item.Name=='照片'" class="info_header" v-on="click:activity_choosePersonalImg()">
+            <div class="emotion_img">
+                <img src="/Areas/WX/Content/images/per_imgs.png" id="img_personalImgUrl"/>
+            </div>
+            <p>上传<span class="upload_promt"></span>图片</p>
+            <div class="info_promt">
+            </div>
+        </div>
+        <div class="info_form">
+            <input v-if="item.Name=='姓名'" onfocus="hideFoot()" onblur="showFoot()" v-model="item.Value" class="info_form_input" id="info_name" placeholder="请输入您的真实{{item.Name}}" type="text"/>
+            <input v-if="item.Name=='手机号'" onfocus="hideFoot()" onblur="showFoot()" v-model="item.Value" class="info_form_input" id="info_phone" placeholder="请输入您的{{item.Name}}" type="number"/>
+        </div>
+    </div>
+    <button class="info_form_input info_form_btn" v-on="click:nextStep(@Model.ActivityId)">提交</button> 
+
+</div>
+@*对比图片*@
+<div class="showPic_info" style="display: none;">
+    <div id="picContainer">
+        <img src="" />
+    </div>
+    <button class="info_form_input info_form_btn" v-on="click:nextStep(@Model.ActivityId)">下一步</button> 
+    <div class="info_note">
+        注：仔细看好这张图片噢！点击“下一步”，上传的图片与本图相似度越高，领取的红包越多哟！
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#tip_money').hide();
+        $('#tip_nomoney').hide();
+        $('.activity_shake').removeClass('top_bottom_img');
+        startShake();
+
+        setTimeout(function(){  //如果20s内还没有摇到红包，直接给出红包
+            if(!($('.activity_shake').hasClass('shake_tag'))){
+                $('.activity_shake').addClass('top_bottom_img'); //“摇一摇图片：手”抖动
+                setTimeout(function () {
+                    activityVM.showRedPacket();   //显示摇到红包
+                    $('.activity_shake').addClass('shake_tag');     //确定是否摇到红包
+                    $('.activity_shake').removeClass('top_bottom_img');
+
+                }, 3000);
+            }
+        },20000);
+        
+
+    });
+    var SHAKE_THRESHOLD = 2000;   //未修改前的值是2000，若过于灵敏，尝试2100
+    var last_update = 0;
+    var x = y = z = last_x = last_y = last_z = 0;
+    var canShake = 1;
+
+    function startShake() {
+
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', deviceMotionHandler, false);
+
+            setTimeout(function () {
+                $('.activity_shake').addClass('top_bottom_img'); //“摇一摇图片：手”抖动
+                setTimeout(function () {
+                    activityVM.showRedPacket();   //显示摇到红包
+                    $('.activity_shake').addClass('shake_tag');     //确定是否摇到红包
+                    $('.activity_shake').removeClass('top_bottom_img');
+
+                }, 3000);
+            }, 10000);
+        } else {
+            alert('not support mobile event');
+        }
+    }
+    function deviceMotionHandler(eventData) {
+        
+        //$('.activity_shake img').addClass('shake_img');
+        var acceleration = eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+        if ((curTime - last_update) > 100) {
+
+            var diffTime = curTime - last_update;
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+           
+            if (speed > SHAKE_THRESHOLD && canShake == 1) {
+                //alert('ok');
+
+                $('#tip_nomoney').hide();
+                $('.activity_shake').addClass('top_bottom_img'); //“摇一摇图片：手”抖动
+                $('.activity_shake').addClass('shake_tag');     //确定是否摇到红包
+
+                setTimeout(function () {
+                    activityVM.showRedPacket();   //显示摇到红包
+                    $('.activity_shake').removeClass('top_bottom_img');
+
+                }, 1000);
+
+            }
+            last_x = x;
+            last_y = y;
+            last_z = z;
+        }
+    }
+    function hideFoot(){
+        $('.footer').hide();
+    }
+    function showFoot() {
+        $('.footer').show();
+    }
+</script>

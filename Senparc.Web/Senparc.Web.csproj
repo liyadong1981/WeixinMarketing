@@ -1,0 +1,2398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E73FAB33-245C-4A2B-8C6F-D5D006B8056E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Senparc.Web</RootNamespace>
+    <AssemblyName>Senparc.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BeyondThemes.Bootstrap">
+      <HintPath>..\Assemblies\BeyondThemes.Bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.RedisSessionStateProvider, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.RedisSessionStateProvider.2.2.2\lib\net40\Microsoft.Web.RedisSessionStateProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin, Version=4.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.4.13.1\lib\net45\Senparc.Weixin.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.Cache.Redis, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.Cache.Redis.1.3.0\lib\net45\Senparc.Weixin.Cache.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.Cache.Redis.RedLock, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.Cache.Redis.RedLock.0.1.1\lib\net45\Senparc.Weixin.Cache.Redis.RedLock.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.14.5.0\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.4\lib\net45\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.1\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis.StrongName, Version=1.0.316.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.StrongName.1.0.488\lib\net45\StackExchange.Redis.StrongName.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="T4MVCExtensions">
+      <HintPath>..\Assemblies\T4MVCExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\4095-rtl.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\4095.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\animate.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\beyond-rtl.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\beyond.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\bootstrap-rtl.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\bootstrap.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\bootstrap.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\dataTables.bootstrap.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\demo.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\font-awesome.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\azure.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\black.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\blue.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\darkblue.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\darkred.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\deepblue.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\gray.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\green.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\orange.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\pink.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\purple.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\skins-mixins.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\skins\teal.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\typicons.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\css\weather-icons.min.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\typicons.svg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\admin_login.jpg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\admin_login_logo.jpg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\angle-down.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\app.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\attach-blue.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\attach-green.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\attach-red.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\attach-yellow.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\favicon.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\jquery.minicolors.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\logo-inverted.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\logo-rtl.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\logo-solo.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\logo.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\sort_asc.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\sort_asc_disabled.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\sort_both.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\sort_desc.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\sort_desc_disabled.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\temp1.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\tree-icons.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\beyond.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\beyond.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\bootbox\bootbox.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\bootbox\bootbox.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\bootstrap.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\bootstrap.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\chartjs\Chart.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\chartjs\Chart.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\chartjs\chartjs-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\easypiechart\easypiechart-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\easypiechart\jquery.easypiechart.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\easypiechart\jquery.easypiechart.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\flot-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.axislabels.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.categories.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.categories.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.crosshair.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.orderBars.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.pie.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.resize.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.selection.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.selection.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.stack.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.stack.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.time.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.time.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.tooltip.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\morris\morris-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\morris\morris.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\morris\raphael-2.0.2.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\sparkline\jquery.sparkline.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\sparkline\sparkline-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\colorpicker\jquery.minicolors.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\colorpicker\jquery.minicolors.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\datatables-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\dataTables.bootstrap.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\dataTables.tableTools.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\dataTables.tableTools.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\jquery.dataTables.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\jquery.dataTables.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\ZeroClipboard.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\bootstrap-datepicker.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\bootstrap-timepicker.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\bootstrap-timepicker.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\daterangepicker.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\moment.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\moment.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\editors\summernote\summernote-zh-CN.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\editors\summernote\summernote.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\editors\summernote\summernote.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\editors\wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\editors\wysiwyg\jquery.hotkeys.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\editors\wysiwyg\prettify.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\spinbox\fuelux.spinbox.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\spinbox\fuelux.spinbox.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\treeview\tree-custom.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\treeview\tree-custom.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\treeview\treeview-init.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\wizard\wizard-custom.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\wizard\wizard-custom.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fullcalendar\fullcalendar.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jquery-1.11.3.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jquery-2.0.3.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jquery.min.js" />
+    <None Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jqueryval\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jqueryval\jquery.validate.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jqueryval\jquery.validate.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jqueryval\jquery.validate.unobtrusive.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jqueryval\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\beyond.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\bootstrap-wysiwyg.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\bootstrap.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\bootstrap.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\jquery.hotkeys.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\jquery.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\jquery.slimscroll.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\prettify.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\jss\summernote.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\knob\jquery.knob.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\nestable\jquery.nestable.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\select2\select2.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\select2\select2.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\skins.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\skins.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\slider\jQRangeSlider\jQAllRangeSliders-withRuler-min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\slider\jQRangeSlider\jquery.mousewheel.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\slider\jquery.nouislider.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\slimscroll\jquery.slimscroll.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\tagsinput\bootstrap-tagsinput.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\textarea\jquery.autosize.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\textarea\jquery.autosize.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\toastr\toastr.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\toastr\toastr.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\validation\bootstrapValidator.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\validation\bootstrapValidator.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\sound\alert.mp3" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\swf\copy_csv_xls.swf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Css\jedate.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Css\jquery.dad.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\expression_img.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\logo_login.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\me_erweima.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\nextStep_icon.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\package_select_icon.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\paySuccess_img.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\prize_add.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\screenBg.jpg" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\screen.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\senparc-login.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\style.css" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\activity_edit.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\Admin_ActivityJs.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\AngularJS\app.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\jedate.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\jquery.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\jquery.qrcode.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\page.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Scripts\screen.js" />
+    <Content Include="Areas\WX\Content\css\redpacket.css" />
+    <Content Include="Areas\WX\Content\css\weui.css" />
+    <Content Include="Areas\WX\Content\images\activitybg.jpg" />
+    <Content Include="Areas\WX\Content\images\activity_btm.png" />
+    <Content Include="Areas\WX\Content\images\activity_btn.png" />
+    <Content Include="Areas\WX\Content\images\activity_til.png" />
+    <Content Include="Areas\WX\Content\images\azure.png" />
+    <Content Include="Areas\WX\Content\images\box_line.png" />
+    <Content Include="Areas\WX\Content\images\expression_box.png" />
+    <Content Include="Areas\WX\Content\images\img\error_img.png" />
+    <Content Include="Areas\WX\Content\images\img\img.jpg" />
+    <Content Include="Areas\WX\Content\images\img\star-half-big.png" />
+    <Content Include="Areas\WX\Content\images\img\star-off-big.png" />
+    <Content Include="Areas\WX\Content\images\img\star-on-big.png" />
+    <Content Include="Areas\WX\Content\images\moeny.png" />
+    <Content Include="Areas\WX\Content\images\no_redpack.png" />
+    <Content Include="Areas\WX\Content\images\perbg.jpg" />
+    <Content Include="Areas\WX\Content\images\per_imgs.png" />
+    <Content Include="Areas\WX\Content\images\record.png" />
+    <Content Include="Areas\WX\Content\images\rewardbg.jpg" />
+    <Content Include="Areas\WX\Content\images\reward_box.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\bottom_icon.png" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\Images\top_icon.png" />
+    <Content Include="Areas\WX\Content\images\shake.png" />
+    <Content Include="Areas\WX\Content\images\tip.png" />
+    <Content Include="Areas\WX\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Areas\WX\Scripts\jquery.raty.js" />
+    <Content Include="Areas\WX\Scripts\jquery.raty.min.js" />
+    <Content Include="Areas\WX\Scripts\page.js" />
+    <Content Include="Areas\WX\Scripts\wxRedPackage.js" />
+    <Content Include="Content\summernote\js\summernote.js" />
+    <Content Include="Content\summernote\lang\summernote-ar-AR.js" />
+    <Content Include="Content\summernote\lang\summernote-bg-BG.js" />
+    <Content Include="Content\summernote\lang\summernote-ca-ES.js" />
+    <Content Include="Content\summernote\lang\summernote-cs-CZ.js" />
+    <Content Include="Content\summernote\lang\summernote-da-DK.js" />
+    <Content Include="Content\summernote\lang\summernote-de-DE.js" />
+    <Content Include="Content\summernote\lang\summernote-es-ES.js" />
+    <Content Include="Content\summernote\lang\summernote-es-EU.js" />
+    <Content Include="Content\summernote\lang\summernote-fa-IR.js" />
+    <Content Include="Content\summernote\lang\summernote-fi-FI.js" />
+    <Content Include="Content\summernote\lang\summernote-fr-FR.js" />
+    <Content Include="Content\summernote\lang\summernote-he-IL.js" />
+    <Content Include="Content\summernote\lang\summernote-hu-HU.js" />
+    <Content Include="Content\summernote\lang\summernote-id-ID.js" />
+    <Content Include="Content\summernote\lang\summernote-it-IT.js" />
+    <Content Include="Content\summernote\lang\summernote-ja-JP.js" />
+    <Content Include="Content\summernote\lang\summernote-ko-KR.js" />
+    <Content Include="Content\summernote\lang\summernote-nb-NO.js" />
+    <Content Include="Content\summernote\lang\summernote-nl-NL.js" />
+    <Content Include="Content\summernote\lang\summernote-pl-PL.js" />
+    <Content Include="Content\summernote\lang\summernote-pt-BR.js" />
+    <Content Include="Content\summernote\lang\summernote-pt-PT.js" />
+    <Content Include="Content\summernote\lang\summernote-ro-RO.js" />
+    <Content Include="Content\summernote\lang\summernote-ru-RU.js" />
+    <Content Include="Content\summernote\lang\summernote-sk-SK.js" />
+    <Content Include="Content\summernote\lang\summernote-sl-SI.js" />
+    <Content Include="Content\summernote\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Content\summernote\lang\summernote-sr-RS.js" />
+    <Content Include="Content\summernote\lang\summernote-sv-SE.js" />
+    <Content Include="Content\summernote\lang\summernote-th-TH.js" />
+    <Content Include="Content\summernote\lang\summernote-tr-TR.js" />
+    <Content Include="Content\summernote\lang\summernote-uk-UA.js" />
+    <Content Include="Content\summernote\lang\summernote-vi-VN.js" />
+    <Content Include="Content\summernote\lang\summernote-zh-CN.js" />
+    <Content Include="Content\summernote\lang\summernote-zh-TW.js" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\+1.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\-1.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\100.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\109.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\1234.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\8ball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\a.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ab.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\abc.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\abcd.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\accept.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\aerial_tramway.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\airplane.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\alarm_clock.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\alien.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ambulance.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\anchor.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\angel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\anger.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\angry.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\anguished.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ant.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\apple.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\aquarius.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\aries.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrows_clockwise.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrows_counterclockwise.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_backward.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_double_down.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_double_up.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_down.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_down_small.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_forward.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_heading_down.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_heading_up.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_left.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_lower_left.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_lower_right.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_right.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_right_hook.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_up.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_upper_left.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_upper_right.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_up_down.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\arrow_up_small.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\art.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\articulated_lorry.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\astonished.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\atm.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\b.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\baby.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\baby_bottle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\baby_chick.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\baby_symbol.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\baggage_claim.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\balloon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ballot_box_with_check.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bamboo.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\banana.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bangbang.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bank.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\barber.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bar_chart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\baseball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\basketball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bath.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bathtub.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\battery.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bear.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\beer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\beers.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\beetle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\beginner.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bell.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bento.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bicyclist.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bike.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bikini.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bird.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\birthday.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\black_circle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\black_joker.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\black_nib.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\black_square.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\black_square_button.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\blossom.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\blowfish.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\blue_book.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\blue_car.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\blue_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\blush.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\boar.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\boat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bomb.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\book.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bookmark.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bookmark_tabs.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\books.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\boom.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\boot.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bouquet.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bow.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bowling.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bowtie.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\boy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bread.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bride_with_veil.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bridge_at_night.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\briefcase.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\broken_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bug.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bulb.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bullettrain_front.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bullettrain_side.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\busstop.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\busts_in_silhouette.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\bust_in_silhouette.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cactus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cake.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\calendar.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\calling.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\camel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\camera.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cancer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\candy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\capital_abcd.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\capricorn.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\car.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\card_index.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\carousel_horse.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cat2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cd.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\chart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\chart_with_downwards_trend.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\chart_with_upwards_trend.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\checkered_flag.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cherries.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cherry_blossom.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\chestnut.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\chicken.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\children_crossing.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\chocolate_bar.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\christmas_tree.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\church.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cinema.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\circus_tent.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\city_sunrise.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\city_sunset.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cl.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clap.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clapper.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clipboard.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock1.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock10.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock1030.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock11.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock1130.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock12.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock1230.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock130.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock230.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock3.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock330.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock4.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock430.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock5.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock530.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock6.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock630.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock7.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock730.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock8.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock830.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock9.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clock930.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\closed_book.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\closed_lock_with_key.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\closed_umbrella.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cloud.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\clubs.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cn.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cocktail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\coffee.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cold_sweat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\collision.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\computer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\confetti_ball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\confounded.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\confused.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\congratulations.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\construction.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\construction_worker.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\convenience_store.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cookie.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cool.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cop.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\copyright.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\corn.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\couple.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\couplekiss.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\couple_with_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cow.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cow2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\credit_card.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\crocodile.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\crossed_flags.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\crown.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cry.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\crying_cat_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\crystal_ball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cupid.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\curly_loop.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\currency_exchange.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\curry.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\custard.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\customs.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\cyclone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dancer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dancers.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dango.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dash.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\date.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\de.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\deciduous_tree.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\department_store.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\diamonds.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\diamond_shape_with_a_dot_inside.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\disappointed.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\disappointed_relieved.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dizzy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dizzy_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dog.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dog2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dollar.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dolls.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dolphin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\door.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\doughnut.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\do_not_litter.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dragon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dragon_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dress.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dromedary_camel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\droplet.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\dvd.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\e-mail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ear.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\earth_africa.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\earth_americas.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\earth_asia.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ear_of_rice.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\egg.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eggplant.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eight.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eightball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eight_pointed_black_star.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eight_spoked_asterisk.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\electric_plug.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\elephant.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\email.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\end.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\envelope.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\es.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\euro.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\european_castle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\european_post_office.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\evergreen_tree.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\exclamation.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\expressionless.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eyeglasses.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\eyes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\facepunch.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\factory.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fallen_leaf.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\family.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fast_forward.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fax.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fearful.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\feelsgood.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\feet.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ferris_wheel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\file_folder.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\finnadie.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fire.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fireworks.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fire_engine.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\first_quarter_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\first_quarter_moon_with_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fish.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fishing_pole_and_fish.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fish_cake.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fist.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\five.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\flags.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\flashlight.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\floppy_disk.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\flower_playing_cards.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\flushed.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\foggy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\football.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fork_and_knife.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fountain.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\four.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\four_leaf_clover.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fr.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\free.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fried_shrimp.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fries.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\frog.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\frowning.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\fuelpump.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\full_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\full_moon_with_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\game_die.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\gb.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\gem.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\gemini.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ghost.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\gift.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\gift_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\girl.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\globe_with_meridians.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\goat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\goberserk.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\godmode.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\golf.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\grapes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\green_apple.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\green_book.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\green_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\grey_exclamation.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\grey_question.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\grimacing.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\grin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\grinning.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\guardsman.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\guitar.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\gun.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\haircut.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hamburger.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hammer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hamster.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hand.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\handbag.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hankey.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hash.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hatched_chick.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hatching_chick.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\headphones.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heartbeat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heartpulse.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hearts.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heart_decoration.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heart_eyes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heart_eyes_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hear_no_evil.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_check_mark.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_division_sign.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_dollar_sign.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_exclamation_mark.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_minus_sign.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_multiplication_x.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\heavy_plus_sign.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\helicopter.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\herb.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hibiscus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\high_brightness.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\high_heel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hocho.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\honeybee.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\honey_pot.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\horse.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\horse_racing.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hospital.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hotel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hotsprings.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hourglass.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hourglass_flowing_sand.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\house.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\house_with_garden.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hurtrealbad.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\hushed.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\icecream.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ice_cream.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\id.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ideograph_advantage.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\imp.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\inbox_tray.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\incoming_envelope.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\information_desk_person.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\information_source.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\innocent.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\interrobang.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\iphone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\it.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\izakaya_lantern.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\jack_o_lantern.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\japan.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\japanese_castle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\japanese_goblin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\japanese_ogre.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\jeans.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\joy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\joy_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\jp.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\key.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\keycap_ten.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kimono.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kiss.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kissing.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kissing_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kissing_closed_eyes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kissing_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kissing_smiling_eyes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\koala.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\koko.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\kr.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\large_blue_circle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\large_blue_diamond.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\large_orange_diamond.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\last_quarter_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\last_quarter_moon_with_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\laughing.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\leaves.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ledger.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\leftwards_arrow_with_hook.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\left_luggage.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\left_right_arrow.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\lemon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\leo.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\leopard.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\libra.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\light_rail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\link.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\lips.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\lipstick.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\lock.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\lock_with_ink_pen.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\lollipop.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\loop.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\loudspeaker.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\love_hotel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\love_letter.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\low_brightness.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\m.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mag.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mag_right.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mahjong.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mailbox.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mailbox_closed.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mailbox_with_mail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mailbox_with_no_mail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\man.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mans_shoe.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\man_with_gua_pi_mao.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\man_with_turban.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\maple_leaf.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mask.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\massage.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\meat_on_bone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mega.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\melon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\memo.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mens.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\metal.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\metro.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\microphone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\microscope.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\milky_way.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\minibus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\minidisc.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mobile_phone_off.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\moneybag.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\money_with_wings.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\monkey.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\monkey_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\monorail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mortar_board.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mountain_bicyclist.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mountain_cableway.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mountain_railway.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mount_fuji.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mouse.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mouse2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\movie_camera.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\moyai.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\muscle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mushroom.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\musical_keyboard.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\musical_note.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\musical_score.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\mute.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\nail_care.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\name_badge.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\neckbeard.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\necktie.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\negative_squared_cross_mark.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\neutral_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\new.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\newspaper.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\new_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\new_moon_with_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ng.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\nine.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\non-potable_water.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\nose.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\notebook.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\notebook_with_decorative_cover.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\notes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_bell.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_bicycles.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_entry.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_entry_sign.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_good.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_mobile_phones.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_mouth.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_pedestrians.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\no_smoking.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\nut_and_bolt.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\o.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\o2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ocean.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\octocat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\octopus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\oden.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\office.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ok.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ok_hand.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ok_woman.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\older_man.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\older_woman.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\on.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\oncoming_automobile.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\oncoming_bus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\oncoming_police_car.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\oncoming_taxi.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\one.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\onehundred.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\onetwothreefour.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\onezeronine.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\open_file_folder.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\open_hands.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\open_mouth.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ophiuchus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\orange_book.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\outbox_tray.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ox.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pager.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\page_facing_up.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\page_with_curl.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\palm_tree.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\panda_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\paperclip.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\parking.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\partly_sunny.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\part_alternation_mark.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\passport_control.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\paw_prints.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\peach.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pear.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pencil.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pencil2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\penguin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pensive.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\performing_arts.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\persevere.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\person_frowning.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\person_with_blond_hair.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\person_with_pouting_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\phone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pig.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pig2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pig_nose.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pill.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pineapple.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pisces.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pizza.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\point_down.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\point_left.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\point_right.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\point_up.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\point_up_2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\police_car.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\poodle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\poop.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\postal_horn.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\postbox.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\post_office.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\potable_water.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pouch.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\poultry_leg.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pound.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pouting_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pray.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\princess.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\punch.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\purple_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\purse.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\pushpin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\put_litter_in_its_place.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\question.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rabbit.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rabbit2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\racehorse.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\radio.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\radio_button.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rage.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rage1.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rage2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rage3.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rage4.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\railway_car.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rainbow.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\raised_hand.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\raised_hands.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\raising_hand.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ram.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ramen.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\recycle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\red_car.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\red_circle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\registered.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\relaxed.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\relieved.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\repeat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\repeat_one.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\restroom.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\revolving_hearts.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rewind.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ribbon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rice.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rice_ball.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rice_cracker.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rice_scene.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ring.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rocket.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\roller_coaster.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rooster.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rose.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rotating_light.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\round_pushpin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rowboat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ru.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\rugby_football.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\runner.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\running.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\running_shirt_with_sash.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sa.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sagittarius.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sailboat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sake.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sandal.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\santa.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\satellite.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\satisfied.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\saxophone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\school.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\school_satchel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\scissors.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\scorpius.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\scream.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\scream_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\scroll.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\seat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\secret.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\seedling.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\see_no_evil.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\seven.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shaved_ice.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sheep.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shell.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ship.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shipit.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shirt.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shit.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shoe.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\shower.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\signal_strength.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\six.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\six_pointed_star.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ski.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\skull.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sleeping.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sleepy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\slot_machine.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\small_blue_diamond.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\small_orange_diamond.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\small_red_triangle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\small_red_triangle_down.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smile.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smiley.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smiley_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smile_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smiling_imp.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smirk.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smirk_cat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\smoking.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\snail.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\snake.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\snowboarder.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\snowflake.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\snowman.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sob.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\soccer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\soon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sos.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sound.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\space_invader.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\spades.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\spaghetti.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sparkler.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sparkles.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sparkling_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\speaker.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\speak_no_evil.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\speech_balloon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\speedboat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\squirrel.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\star.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\star2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\stars.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\station.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\statue_of_liberty.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\steam_locomotive.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\stew.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\straight_ruler.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\strawberry.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\stuck_out_tongue.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\stuck_out_tongue_closed_eyes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\stuck_out_tongue_winking_eye.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sunflower.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sunglasses.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sunny.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sunrise.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sunrise_over_mountains.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sun_with_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\surfer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sushi.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\suspect.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\suspension_railway.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sweat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sweat_drops.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sweat_smile.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\sweet_potato.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\swimmer.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\symbols.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\syringe.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tada.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tanabata_tree.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tangerine.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\taurus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\taxi.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tea.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\telephone.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\telephone_receiver.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\telescope.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tennis.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tent.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\thought_balloon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\three.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\thumbsdown.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\thumbsup.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\ticket.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tiger.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tiger2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tired_face.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tm.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\toilet.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tokyo_tower.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tomato.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tongue.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\top.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tophat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tractor.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\traffic_light.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\train.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\train2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tram.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\triangular_flag_on_post.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\triangular_ruler.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\trident.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\triumph.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\trolleybus.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\trollface.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\trophy.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tropical_drink.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tropical_fish.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\truck.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\trumpet.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tshirt.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tulip.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\turtle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\tv.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\twisted_rightwards_arrows.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\two.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\two_hearts.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\two_men_holding_hands.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\two_women_holding_hands.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u5272.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u5408.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u55b6.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u6307.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u6708.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u6709.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u6e80.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u7121.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u7533.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u7981.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\u7a7a.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\uk.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\umbrella.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\unamused.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\underage.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\unlock.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\up.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\us.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\v.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\vertical_traffic_light.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\vhs.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\vibration_mode.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\video_camera.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\video_game.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\violin.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\virgo.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\volcano.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\vs.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\walking.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\waning_crescent_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\waning_gibbous_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\warning.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\watch.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\watermelon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\water_buffalo.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wave.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wavy_dash.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\waxing_crescent_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\waxing_gibbous_moon.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wc.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\weary.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wedding.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\whale.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\whale2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wheelchair.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\white_check_mark.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\white_circle.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\white_flower.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\white_square.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\white_square_button.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wind_chime.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wine_glass.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wink.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wink2.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wolf.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\woman.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\womans_clothes.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\womans_hat.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\womens.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\worried.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\wrench.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\x.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\yellow_heart.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\yen.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\yum.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\zap.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\zero.png" />
+    <Content Include="Content\summernote\plugin\emoji\pngs\zzz.png" />
+    <Content Include="Content\summernote\plugin\summernote-ext-chooseColor.js" />
+    <Content Include="Content\summernote\plugin\summernote-ext-emoji.js" />
+    <Content Include="Content\summernote\plugin\summernote-ext-hello.js" />
+    <Content Include="Content\summernote\plugin\summernote-ext-hint.js" />
+    <Content Include="Content\summernote\plugin\summernote-ext-specialchar.js" />
+    <Content Include="Content\summernote\plugin\summernote-ext-video.js" />
+    <Content Include="Content\summernote\summernote.css" />
+    <Content Include="Content\summernote\summernote.js" />
+    <Content Include="Content\summernote\summernote.min.js" />
+    <Content Include="Scripts\hammer.min.js" />
+    <Content Include="Scripts\jquery.pin.js" />
+    <Content Include="Content\pagecss.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\AmazeUI\css\amazeui.min.css" />
+    <Content Include="Scripts\AmazeUI\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\AmazeUI\js\amazeui.min.js" />
+    <Content Include="Scripts\AmazeUI\js\jquery.min.js" />
+    <Content Include="Scripts\Angular-Extension\angular-elastic\elastic.js" />
+    <Content Include="Scripts\Angular-Extension\angular-fancy-modal\angular-fancy-modal.css" />
+    <Content Include="Scripts\Angular-Extension\angular-fancy-modal\angular-fancy-modal.js" />
+    <Content Include="Scripts\Angular-Extension\angular-ivh-treeview\ivh-treeview-theme-basic.css" />
+    <Content Include="Scripts\Angular-Extension\angular-ivh-treeview\ivh-treeview.css" />
+    <Content Include="Scripts\Angular-Extension\angular-ivh-treeview\ivh-treeview.js" />
+    <Content Include="Scripts\Angular-Extension\angular-ivh-treeview\ivh-treeview.min.css" />
+    <Content Include="Scripts\Angular-Extension\angular-ivh-treeview\ivh-treeview.min.js" />
+    <Content Include="Scripts\Angular-Extension\angular-minicolors\angular-minicolors.js" />
+    <Content Include="Scripts\Angular-Extension\angular-minicolors\jquery.minicolors.js" />
+    <Content Include="Scripts\Angular-Extension\angular-minicolors\jquery.minicolors.min.js" />
+    <Content Include="Scripts\Angular-Extension\angular-summernote.js" />
+    <Content Include="Scripts\Angular-Extension\angular-ueditor.js" />
+    <Content Include="Scripts\Angular-Extension\angular-toaster\toaster.css" />
+    <Content Include="Scripts\Angular-Extension\angular-toaster\toaster.js" />
+    <Content Include="Scripts\Angular-Extension\angular-toaster\toaster.min.css" />
+    <Content Include="Scripts\Angular-Extension\angular-ui-select\select.css" />
+    <Content Include="Scripts\Angular-Extension\angular-ui-select\select.js" />
+    <Content Include="Scripts\Angular-Extension\angular-ui-select\select.min.css" />
+    <Content Include="Scripts\Angular-Extension\angular-ui-select\select.min.js" />
+    <Content Include="Scripts\Angular-Extension\fileUploader\fileUploader.js" />
+    <Content Include="Scripts\Angular-Extension\ui.bootstrap.contextMenu.js" />
+    <Content Include="Scripts\Angular-Extension\gestures.js" />
+    <Content Include="Scripts\Angular-Extension\ng-context-menu.js" />
+    <Content Include="Scripts\Angular-Extension\ng-custom-loading.js" />
+    <Content Include="Scripts\Angular-Extension\ng-custom-title.js" />
+    <Content Include="Scripts\Angular-Extension\ng-infinite-scroll.js" />
+    <Content Include="Scripts\Angular-Extension\ui-bootstrap.js" />
+    <Content Include="Scripts\AngularJS\angular-animate.js" />
+    <Content Include="Scripts\AngularJS\angular-animate.min.js" />
+    <Content Include="Scripts\AngularJS\angular-aria.js" />
+    <Content Include="Scripts\AngularJS\angular-aria.min.js" />
+    <Content Include="Scripts\AngularJS\angular-cookies.js" />
+    <Content Include="Scripts\AngularJS\angular-cookies.min.js" />
+    <Content Include="Scripts\AngularJS\angular-csp.css" />
+    <Content Include="Scripts\AngularJS\angular-loader.js" />
+    <Content Include="Scripts\AngularJS\angular-loader.min.js" />
+    <Content Include="Scripts\AngularJS\angular-messages.js" />
+    <Content Include="Scripts\AngularJS\angular-messages.min.js" />
+    <Content Include="Scripts\AngularJS\angular-mocks.js" />
+    <Content Include="Scripts\AngularJS\angular-resource.js" />
+    <Content Include="Scripts\AngularJS\angular-resource.min.js" />
+    <Content Include="Scripts\AngularJS\angular-route.js" />
+    <Content Include="Scripts\AngularJS\angular-route.min.js" />
+    <Content Include="Scripts\AngularJS\angular-sanitize.js" />
+    <Content Include="Scripts\AngularJS\angular-sanitize.min.js" />
+    <Content Include="Scripts\AngularJS\angular-scenario.js" />
+    <Content Include="Scripts\AngularJS\angular-touch.js" />
+    <Content Include="Scripts\AngularJS\angular-touch.min.js" />
+    <Content Include="Scripts\AngularJS\angular.js" />
+    <Content Include="Scripts\AngularJS\angular.min.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_aa-dj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_aa-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_aa-et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_aa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_af-na.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_af-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_af.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_agq-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_agq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ak-gh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ak.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_am-et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_am.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-001.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-ae.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-bh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-dj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-dz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-eg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-eh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-il.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-iq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-jo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-km.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-kw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-lb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-ly.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-ma.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-mr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-om.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-ps.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-qa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-sa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-sd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-so.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-ss.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-sy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-td.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-tn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar-ye.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ar.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_as-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_as.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_asa-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_asa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ast-es.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ast.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_az-cyrl-az.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_az-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_az-latn-az.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_az-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_az.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bas-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bas.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_be-by.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_be.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bem-zm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bem.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bez-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bez.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bg-bg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bm-latn-ml.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bm-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bm-ml.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bn-bd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bn-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bo-cn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bo-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_br-fr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_br.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_brx-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_brx.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bs-cyrl-ba.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bs-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bs-latn-ba.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bs-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_bs.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_byn-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_byn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ca-ad.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ca-es-valencia.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ca-es.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ca-fr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ca-it.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ca.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_cgg-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_cgg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_chr-us.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_chr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-arab-iq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-arab-ir.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-arab.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-iq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-ir.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-latn-iq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ckb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_cs-cz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_cs.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_cy-gb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_cy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_da-dk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_da-gl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_da.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dav-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dav.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de-at.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de-be.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de-ch.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de-de.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de-li.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de-lu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_de.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dje-ne.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dje.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dsb-de.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dsb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dua-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dua.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dyo-sn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dyo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dz-bt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_dz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ebu-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ebu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ee-gh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ee-tg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ee.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_el-cy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_el-gr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_el.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-001.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-150.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ag.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ai.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-as.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-au.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-bb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-be.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-bm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-bs.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-bw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-bz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ca.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-cc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ck.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-cx.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-dg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-dm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-fj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-fk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-fm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-gy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-hk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ie.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-im.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-io.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-iso.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-je.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-jm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ki.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-kn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ky.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-lc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-lr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ls.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mp.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ms.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-mw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-my.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-na.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-nf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ng.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-nr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-nu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-nz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-pg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ph.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-pk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-pn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-pr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-pw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-rw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ss.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sx.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-sz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-tc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-tk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-to.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-tt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-tv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-um.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-us.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-vc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-vg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-vi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-vu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-ws.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-zm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en-zw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_eo-001.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_eo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-419.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ar.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-bo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-cl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-co.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-cr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-cu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-do.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ea.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ec.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-es.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-gq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-gt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-hn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ic.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-mx.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ni.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-pa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-pe.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ph.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-pr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-py.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-sv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-us.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-uy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es-ve.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_es.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_et-ee.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_eu-es.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_eu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ewo-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ewo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fa-af.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fa-ir.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ff-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ff-gn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ff-mr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ff-sn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ff.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fi-fi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fil-ph.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fil.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fo-fo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-be.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-bf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-bi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-bj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-bl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ca.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-cd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-cf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-cg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ch.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ci.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-dj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-dz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-fr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ga.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-gf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-gn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-gp.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-gq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ht.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-km.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-lu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ma.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-mc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-mf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-mg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ml.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-mq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-mr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-mu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-nc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-ne.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-pf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-pm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-re.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-rw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-sc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-sn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-sy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-td.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-tg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-tn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-vu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-wf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr-yt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fur-it.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fur.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fy-nl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_fy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ga-ie.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ga.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gd-gb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gl-es.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gsw-ch.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gsw-fr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gsw-li.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gsw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gu-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_guz-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_guz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gv-im.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_gv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ha-latn-gh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ha-latn-ne.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ha-latn-ng.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ha-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ha.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_haw-us.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_haw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_he-il.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_he.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hi-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hr-ba.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hr-hr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hsb-de.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hsb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hu-hu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hy-am.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_hy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ia-fr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ia.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_id-id.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_id.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ig-ng.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ig.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ii-cn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ii.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_is-is.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_is.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_it-ch.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_it-it.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_it-sm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_it.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_iw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ja-jp.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ja.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_jgo-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_jgo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_jmc-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_jmc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ka-ge.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ka.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kab-dz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kab.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kam-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kam.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kde-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kde.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kea-cv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kea.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_khq-ml.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_khq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ki-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ki.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kk-cyrl-kz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kk-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kkj-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kkj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kl-gl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kln-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kln.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_km-kh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_km.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kn-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ko-kp.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ko-kr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ko.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kok-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kok.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ks-arab-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ks-arab.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ks.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ksb-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ksb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ksf-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ksf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ksh-de.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ksh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kw-gb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_kw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ky-cyrl-kg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ky-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ky.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lag-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lag.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lb-lu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lg-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lkt-us.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lkt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ln-ao.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ln-cd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ln-cf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ln-cg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ln.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lo-la.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lt-lt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lu-cd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_luo-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_luo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_luy-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_luy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lv-lv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_lv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mas-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mas-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mas.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mer-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mer.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mfe-mu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mfe.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mg-mg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mgh-mz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mgh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mgo-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mgo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mk-mk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ml-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ml.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mn-cyrl-mn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mn-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mr-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ms-latn-bn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ms-latn-my.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ms-latn-sg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ms-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ms.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mt-mt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mua-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_mua.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_my-mm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_my.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_naq-na.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_naq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nb-no.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nb-sj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nb.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nd-zw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ne-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ne-np.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ne.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-aw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-be.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-bq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-cw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-nl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-sr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl-sx.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nmg-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nmg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nn-no.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nnh-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nnh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_no-no.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_no.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nr-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nso-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nso.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nus-sd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nus.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nyn-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_nyn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_om-et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_om-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_om.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_or-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_or.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_os-ge.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_os-ru.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_os.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pa-arab-pk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pa-arab.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pa-guru-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pa-guru.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pa.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pl-pl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ps-af.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ps.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-ao.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-br.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-cv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-gw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-mo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-mz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-pt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-st.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt-tl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_pt.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_qu-bo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_qu-ec.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_qu-pe.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_qu.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rm-ch.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rn-bi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ro-md.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ro-ro.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ro.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rof-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rof.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru-by.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru-kg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru-kz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru-md.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru-ru.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru-ua.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ru.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rw-rw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rwk-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_rwk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sah-ru.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sah.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_saq-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_saq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sbp-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sbp.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_se-fi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_se-no.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_se-se.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_se.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_seh-mz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_seh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ses-ml.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ses.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sg-cf.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_shi-latn-ma.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_shi-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_shi-tfng-ma.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_shi-tfng.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_shi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_si-lk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_si.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sk-sk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sl-si.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_smn-fi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_smn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sn-zw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_so-dj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_so-et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_so-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_so-so.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_so.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sq-al.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sq-mk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sq-xk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-cyrl-ba.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-cyrl-me.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-cyrl-rs.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-cyrl-xk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-latn-ba.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-latn-me.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-latn-rs.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-latn-xk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ss-sz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ss-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ss.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ssy-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ssy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_st-ls.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_st-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_st.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sv-ax.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sv-fi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sv-se.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sv.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sw-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sw-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sw-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_sw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_swc-cd.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_swc.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ta-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ta-lk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ta-my.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ta-sg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ta.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_te-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_te.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_teo-ke.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_teo-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_teo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tg-cyrl-tj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tg-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_th-th.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_th.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ti-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ti-et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ti.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tig-er.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tig.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tn-bw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tn-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_to-to.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_to.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tr-cy.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tr-tr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ts-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ts.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_twq-ne.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_twq.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tzm-latn-ma.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tzm-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_tzm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ug-arab-cn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ug-arab.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uk-ua.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ur-in.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ur-pk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ur.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz-arab-af.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz-arab.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz-cyrl-uz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz-cyrl.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz-latn-uz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_uz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vai-latn-lr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vai-latn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vai-vaii-lr.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vai-vaii.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vai.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ve-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_ve.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vi-vn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vo-001.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vun-tz.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_vun.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_wae-ch.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_wae.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_wal-et.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_wal.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_xh-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_xh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_xog-ug.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_xog.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yav-cm.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yav.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yi-001.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yi.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yo-bj.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yo-ng.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_yo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zgh-ma.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zgh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-cn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hans-cn.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hans-hk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hans-mo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hans-sg.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hans.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hant-hk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hant-mo.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hant-tw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hant.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-hk.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh-tw.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zh.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zu-za.js" />
+    <Content Include="Scripts\AngularJS\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\AngularJS\version.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\AdminUserInfo\Edit.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\AdminUserInfo\Index.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Web.config" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\AngularJS\angular-animate.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-aria.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-cookies.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-loader.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-messages.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-resource.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-route.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular-touch.min.js.map" />
+    <Content Include="Scripts\AngularJS\angular.min.js.map" />
+    <Content Include="Scripts\AngularJS\errors.json" />
+    <Content Include="Scripts\AngularJS\version.json" />
+    <Content Include="Scripts\AngularJS\web.config" />
+    <Content Include="Areas\WX\Views\Home\Index.cshtml" />
+    <Content Include="Areas\WX\Views\Web.config" />
+    <Content Include="Areas\WX\Views\_ViewStart.cshtml" />
+    <Content Include="log4net.config" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\SystemConfig\Index.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\BYekan.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\FontAwesome.otf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\typicons.eot" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\typicons.ttf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\typicons.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\WeatherIcons-Regular.otf" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\YekanWeb-Bold.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\fonts\YekanWeb-Regular.woff" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\beyond.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\bootbox\bootbox.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\easypiechart\jquery.easypiechart.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\charts\flot\jquery.flot.tooltip.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\dataTables.bootstrap.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\dataTables.tableTools.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datatable\jquery.dataTables.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\datetime\bootstrap-timepicker.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\spinbox\fuelux.spinbox.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\treeview\tree-custom.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fuelux\wizard\wizard-custom.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\fullcalendar\fullcalendar.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\tagsinput\bootstrap-tagsinput.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\js\toastr\toastr.min.js.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Order\Index.cshtml" />
+    <Content Include="Scripts\hammer.min.map" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Account\Edit.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Account\Index.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Shared\_Empty.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\RedPackageActivity\Edit.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\RedPackageActivity\Index.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\RedPackageActivityAwardLog\Index.cshtml" />
+    <Content Include="Areas\WX\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\WX\Views\Shared\Success.cshtml" />
+    <Content Include="Areas\WX\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\WX\Views\Shared\_Empty.cshtml" />
+    <Content Include="Areas\WX\Views\RedPackageActivity\Index.cshtml" />
+    <Content Include="Areas\WX\Views\RedPackageActivity\RedPacketLog.cshtml" />
+    <Content Include="Areas\WX\Views\RedPackageActivity\GetRedPacket.cshtml" />
+    <Content Include="Areas\WX\Views\RedPackageActivity\SubmitPerMsg.cshtml" />
+    <Content Include="Areas\SenparcWeixinMarketingAdmin\Views\RedPackageActivity\Screen.cshtml" />
+    <None Include="Properties\PublishProfiles\AzureDemo - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\AzureDemo - Web Deploy %283%29.pubxml" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\AmazeUI\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\AmazeUI\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\AmazeUI\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\AmazeUI\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\AmazeUI\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\AzureDemo2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\AzureDemo2 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\iScroll.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\vue\plugin\vue-async-data.js" />
+    <Content Include="Scripts\vue\plugin\vue-element\vue-element.js" />
+    <Content Include="Scripts\vue\plugin\vue-resource\vue-resource.min.js" />
+    <Content Include="Scripts\vue\plugin\vue-router\vue-router.js" />
+    <Content Include="Scripts\vue\plugin\vue-router\vue-router.min.js" />
+    <Content Include="Scripts\vue\plugin\vue-tap.js" />
+    <Content Include="Scripts\vue\plugin\vue-touch.js" />
+    <Content Include="Scripts\vue\plugin\vue-validator\vue-validator.js" />
+    <Content Include="Scripts\vue\plugin\vue-validator\vue-validator.min.js" />
+    <Content Include="Scripts\vue\vue.js" />
+    <Content Include="Scripts\vue\vue.min.js" />
+    <Content Include="Scripts\zepto.dpToast.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\underscore\underscore-min.js" />
+    <Content Include="Scripts\underscore\underscore.js" />
+    <Content Include="Scripts\zepto\touch.js" />
+    <Content Include="Scripts\zepto\zepto.js" />
+    <Content Include="Scripts\zepto\zepto.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Upload\Account\.gitignore" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\underscore\underscore-min.map" />
+    <Content Include="Views\Shared\Error404.cshtml" />
+    <Content Include="Views\Shared\_AreaListPartial.cshtml" />
+    <Content Include="Scripts\vue\plugin\vue-router\vue-router.min.js.map" />
+    <Content Include="Scripts\vue\plugin\vue-validator\vue-validator.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\SenparcWeixinMarketingAdmin\Content\backend\img\avatars\" />
+    <Folder Include="Scripts\AngularJS\i18n\ngLocale\" />
+    <Folder Include="Upload\Emotion\" />
+    <Folder Include="Views\Install\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Senparc.Areas.Admin\Senparc.Areas.Admin.csproj">
+      <Project>{3fa6a334-6d3f-4740-94d0-182cf6e0dc74}</Project>
+      <Name>Senparc.Areas.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Areas.WX\Senparc.Areas.WX.csproj">
+      <Project>{14d74161-63cf-4a37-9ef6-333e0dc694e0}</Project>
+      <Name>Senparc.Areas.WX</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.AzureCognitiveService\Senparc.AzureCognitiveService.csproj">
+      <Project>{0c7bbae4-513a-46de-864a-8729a7afd68b}</Project>
+      <Name>Senparc.AzureCognitiveService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Core\Senparc.Core.csproj">
+      <Project>{82df27d6-bc0e-4ad6-9494-1f2206801873}</Project>
+      <Name>Senparc.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Log\Senparc.Log.csproj">
+      <Project>{a58e9bf0-c155-4445-a688-4c96031529b4}</Project>
+      <Name>Senparc.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Mvc\Senparc.Mvc.csproj">
+      <Project>{6f928aca-d34d-4b5c-9e52-9d6cfc304d26}</Project>
+      <Name>Senparc.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Pay\Senparc.Pay.csproj">
+      <Project>{810b2b22-cf4d-43b5-9639-ca29a4656cc9}</Project>
+      <Name>Senparc.Pay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Repository\Senparc.Repository.csproj">
+      <Project>{e8db9a29-15e6-4fb8-9a81-f6cd691a3d65}</Project>
+      <Name>Senparc.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Service\Senparc.Service.csproj">
+      <Project>{9823f77e-066d-4a0c-a05a-b677739d359f}</Project>
+      <Name>Senparc.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Threads\Senparc.Threads.csproj">
+      <Project>{93b48068-219d-4d12-8b73-11446e69f59c}</Project>
+      <Name>Senparc.Threads</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Utility\Senparc.Utility.csproj">
+      <Project>{17155b76-8ffc-4632-8292-7571394b97ac}</Project>
+      <Name>Senparc.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Senparc.Web.UI\Senparc.Web.UI.csproj">
+      <Project>{c9abf036-d51d-4a40-bb93-e7d413362c09}</Project>
+      <Name>Senparc.Web.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>17215</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:17561/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

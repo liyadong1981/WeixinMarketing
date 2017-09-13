@@ -1,0 +1,51 @@
+﻿@model Senparc.Areas.Admin.Models.VD.Login_IndexVD
+@{
+    Layout = "~/Areas/SenparcWeixinMarketingAdmin/Views/Shared/_Empty.cshtml";
+    var message = Model.MessagerList.FirstOrDefault();
+}
+@section scripts{
+    <script src="~/Scripts/slider.js"></script>
+    <script type="text/javascript">
+        featuredcontentslider.init({ id: "focusPic", contentsource: ["inline", ""], toc: "#increment", nextprev: ["", ""], revealtype: "mouseover", enablefade: [true, 0.15], autorotate: [true, 3000], delay: 150, onChange: function (previndex, curindex) { } });
+    </script>
+
+}
+@section HeaderContent{
+    @Styles.Render("~/Areas/SenparcWeixinMarketingAdmin/Content/senparc-login.css")
+}
+<div class="content">
+    <div class="loginLogo">
+        <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/logo_login.png" style="width:180px;">
+    </div>
+    <div class="login-container animated fadeIn">
+        <div class="loginbox bg-white">
+            <div class="loginbox-title">管理员登录</div>
+            <div class="loginbox-social">
+                <div class="social-title danger">
+                    @(message != null ? message.MessageText : "")
+                </div>
+            </div>
+            @using (var form = Html.Bootstrap().Begin(new Form().Type(FormType.Vertical)))
+            {
+                @Html.HiddenFor(m => m.ReturnUrl)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="loginbox-textbox">
+                    @Html.Bootstrap().TextBoxFor(t => t.UserName).Placeholder("用户名")
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                </div>
+                <div class="loginbox-textbox">
+                    @Html.Bootstrap().PasswordFor(t => t.Password).Placeholder("密码")
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+                if (Model.ShowCheckCode)
+                {
+                    //TODO: 显示验证码
+                }
+                <div class="loginbox-submit">
+                    @Html.Bootstrap().SubmitButton().Text("登录").Color(BootstrapColors.Primary).ButtonBlock()
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

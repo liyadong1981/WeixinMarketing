@@ -1,0 +1,430 @@
+﻿* {
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #ebebeb;
+}
+
+a,
+p,
+span {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+input,
+textarea,
+button {
+    outline: none;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+html, body {
+    height: 100%;
+    font-size: 16px !important;
+}
+
+.clear {
+    clear: both;
+}
+
+.expressionGame {
+    height: 100%;
+    background: url('/Areas/SenparcWeixinMarketingAdmin/Content/Images/screenBg.jpg') no-repeat 100% 100%;
+    background-size: 100% 100%;
+    /*font-size:150%;*/
+}
+
+.expression_title {
+    /*font-size:150%;*/
+    text-align: center;
+    color: #fff;
+    letter-spacing: 10px;
+    position: relative;
+}
+
+    .expression_title img {
+        height: 88%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+.expression_con {
+    width: 100%;
+    overflow: auto;
+}
+
+.expression_con_block {
+    width: 60%;
+    border-radius: 6px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.expression_message {
+    float: left;
+    padding-left: 8%;
+}
+
+    .expression_message div {
+        color: #fff;
+        float: left;
+        margin: 0 auto;
+    }
+
+.expression_score {
+    float: left;
+    color: #fff;
+    margin: 0 auto;
+}
+
+    .expression_score div {
+        float: left;
+    }
+
+.expression_headImg {
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+    .expression_headImg img {
+        width: 100%;
+        height: 100%;
+    }
+
+.expression_score_headImg {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .expression_score_headImg img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+.expression_name {
+    padding-left: 5%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;*/
+}
+
+.expression_userMessage {
+    font-size: 18px;
+    float: left;
+    color: #fff;
+    text-align: center;
+    margin-left: 5%;
+}
+
+.expression_ranking {
+    float: left;
+    color: #fff;
+    font-style: italic !important;
+    text-align: right;
+    padding-right: 8%;
+    /*font-size:200%;*/
+}
+
+    .expression_ranking span {
+        color: #fff;
+        margin: 0 6px !important;
+    }
+
+.expression_enlarge {
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
+
+.expression_text {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+.expression_userMessage span {
+    padding-right: 5px;
+}
+
+.qrcode {
+    /*width:30px;*/
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+    .qrcode img {
+        width: 25px;
+        vertical-align:middle;
+    }
+
+    .qrcode span {
+        font-size: 0.6em;
+    }
+
+.packageActivityCode {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+
+#activityCode {
+    width: 500px;
+    height: 500px;
+}
+
+    #activityCode canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+.package_activityCode {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px 30px 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .package_activityCode p {
+        margin-top: 20px;
+        font-size:1.5em;
+    }
+
+@media (min-width:200px) and (max-width:649px) {
+    .expression_message {
+        width: 22%;
+    }
+
+    .expression_score {
+        width: 58%;
+    }
+
+    .expression_ranking {
+        width: 20%;
+    }
+
+    .expression_title {
+        font-size: 16px;
+    }
+
+    .expression_name {
+        font-size: 14px;
+        /*width: 130px;*/
+        width: 16%;
+    }
+
+    .expression_userMessage, .expression_userMessage span {
+        font-size: 14px;
+    }
+
+    .expression_ranking span, .expression_ranking {
+        font-size: 14px;
+    }
+
+    .expression_headImg {
+        width: 60px !important;
+        height: 60px !important;
+        margin-top: 35% !important;
+    }
+
+        .expression_headImg img {
+            /*margin-top:-30px;*/
+        }
+}
+
+@media (min-width:650px) and (max-width:1000px) {
+    .expression_message {
+        width: 22%;
+    }
+
+    .expression_score {
+        width: 58%;
+    }
+
+    .expression_ranking {
+        width: 20%;
+    }
+
+    .expression_title {
+        font-size: 20px;
+    }
+
+    .expression_name {
+        font-size: 16px;
+        /*width: 90px;*/
+    }
+
+    .expression_userMessage, .expression_userMessage span {
+        font-size: 16px;
+    }
+
+    .expression_ranking span {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:1001px) and (max-width:2000px) {
+    .expression_message {
+        width: 22%;
+    }
+
+    .expression_score {
+        width: 58%;
+    }
+
+    .expression_ranking {
+        width: 20%;
+    }
+
+    .expression_title {
+        font-size: 200%;
+    }
+
+    .expression_name {
+        font-size: 150%;
+        /*max-width: 130px;*/
+    }
+
+    .expression_userMessage, .expression_userMessage span {
+        font-size: 150%;
+    }
+
+    .expression_ranking span {
+        font-size: 250%;
+    }
+}
+
+@media (min-width:2001px) and (max-width:3000px) {
+    .expression_message {
+        width: 22%;
+    }
+
+    .expression_score {
+        width: 58%;
+    }
+
+    .expression_ranking {
+        width: 20%;
+    }
+
+    .expression_title {
+        font-size: 250%;
+    }
+
+    .expression_name {
+        font-size: 180%;
+        /*max-width: 200px;*/
+    }
+
+    .expression_userMessage, .expression_userMessage span {
+        font-size: 180%;
+    }
+
+
+
+    .expression_ranking span {
+        font-size: 300%;
+    }
+}
+
+@media (min-width:3001px) {
+    .expression_message {
+        width: 22%;
+    }
+
+    .expression_score {
+        width: 58%;
+    }
+
+    .expression_ranking {
+        width: 20%;
+    }
+
+    .expression_title {
+        font-size: 230%;
+    }
+
+    .expression_name {
+        font-size: 220%;
+        /*width: 300px;*/
+    }
+
+    .expression_userMessage, .expression_userMessage span {
+        font-size: 220%;
+    }
+
+    .expression_ranking span {
+        font-size: 350%;
+    }
+}

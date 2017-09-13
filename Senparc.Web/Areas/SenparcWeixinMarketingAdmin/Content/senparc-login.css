@@ -1,0 +1,135 @@
+﻿.img-checkcode {
+    width: 100px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 3px;
+}
+
+html, body {
+   
+}
+
+    body:before {
+        background-size: 100% 100%;
+        
+    }
+
+.content {
+
+}
+
+.contentdiv {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: no-display !important;
+}
+
+.loginLogo {
+    text-align: center;
+    padding: 125px 0 50px;
+}
+
+.contentdiv img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner {
+    float: left;
+    height: 660px;
+    width: 700px;
+    margin-left: -100px;
+}
+
+.pagination {
+    display: none;
+}
+
+.login-container .loginbox {
+    padding: 0 0 80px 0;
+    border-radius: 5px;
+    width: 350px !important;
+}
+
+.login-container {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+    .login-container .loginbox .loginbox-title {
+        color: #31d1de;
+        padding: 40px 0 30px;
+        font-size: 26px;
+    }
+
+
+
+    .login-container .loginbox .loginbox-textbox {
+        padding: 14px 30px;
+    }
+
+        .login-container .loginbox .loginbox-textbox .form-control {
+            height: 40px;
+        }
+
+    .login-container .loginbox .loginbox-submit {
+        padding: 10px 30px;
+    }
+
+.btn-primary, .btn-primary:focus {
+    background-color: #31d1de !important;
+    border: #31d1de;
+    height: 40px;
+    font-size: 16px;
+}
+
+    .btn-primary, .btn-primary:hover {
+        background-color: #31d1de !important;
+        border: #31d1de;
+        height: 40px;
+        font-size: 16px;
+    }
+
+.login-header {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.login-header-info {
+    float: right;
+}
+
+    .login-header-info a {
+        margin-right: 10px;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+    }
+
+.login-footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    zoom: 1;
+    padding: 20px;
+    color: #fff;
+}
+
+    .login-footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}

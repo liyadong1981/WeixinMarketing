@@ -1,0 +1,2 @@
+提示：当此文件名为UseRedis.txt时，作为启用Redis的必备条件之一。
+另外一个条件是在Web.Config中的<appSettings>节点下加入：<add key="CacheType" value="REDIS" />

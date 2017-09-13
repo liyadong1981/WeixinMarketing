@@ -1,0 +1,118 @@
+﻿@model Senparc.Areas.Admin.Models.VD.RedPackageActivity_ScreenVD
+@{
+    ViewBag.Title = "奖品记录";
+    Layout = null;
+}
+
+<html>
+<head>
+    <title></title>
+    <link href="~/Areas/SenparcWeixinMarketingAdmin/Content/screen.css" rel="stylesheet" />
+    <script src="~/Areas/SenparcWeixinMarketingAdmin/Content/backend/js/jquery-1.11.3.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="expressionGame">
+        @*<div class="expression_title">排名</div>*@
+        <div class="expression_title"><img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/expression_img.png" /></div>
+
+        @if (Model.ResultModule != null)
+        {
+            <div class="expression_text">
+                @(Model.ResultModule.Input[0].Value.ToString())</div>
+        }
+        <div class="expression_con">
+            <div class="expression_con_block ecb1 clear" style="display:none;">
+                <div class="expression_message">
+                    @*<div class="expression_headImg">
+                            <img src="" />
+                        </div>*@
+                    <div class="expression_name">
+
+                    </div>
+                </div>
+                <div class="expression_score">
+                    <div class="expression_score_headImg">
+                        <img src="" />
+                    </div>
+                    <div class="expression_userMessage">
+                        <span></span>分
+                    </div>
+                </div>
+                <div class="expression_ranking">
+                    第<span></span>名
+                </div>
+            </div>
+            <div class="expression_con_block ecb2 clear" style="display:none;">
+                <div class="expression_message">
+                    @*<div class="expression_headImg">
+                            <img src="" />
+                        </div>*@
+                    <div class="expression_name">
+
+                    </div>
+                </div>
+                <div class="expression_score">
+                    <div class="expression_score_headImg">
+                        <img src="" />
+                    </div>
+                    <div class="expression_userMessage">
+                        <span></span>分
+                    </div>
+                </div>
+                <div class="expression_ranking">
+                    第<span></span>名
+                </div>
+            </div>
+
+        </div>
+
+        <div class="packageActivityCode" onclick="hide_enlargeCode()" style="display: none;">
+            <div class="package_activityCode">
+                <div id="activityCode"></div>
+                <p>扫一扫活动二维码，参与活动！</p>
+            </div>
+        </div>
+
+        <div onclick="enlargeCode()" class="qrcode">
+            <img src="~/Areas/SenparcWeixinMarketingAdmin/Content/Images/me_erweima.png" />
+            <span>活动二维码</span>
+        </div>
+
+
+        @*图片放大*@
+        <div class="expression_enlarge" id="expression_first" style="display:none;">
+            <img src="" />
+        </div>
+        <div class="expression_enlarge" id="expression_second" style="display:none;">
+            <img src="" />
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="~/Scripts/vue/vue.js"></script>
+<script src="~/Scripts/vue/plugin/vue-touch.js"></script>
+<script src="~/Scripts/vue/plugin/vue-tap.js"></script>
+<script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/jquery.qrcode.min.js"></script>
+<script src="~/Areas/SenparcWeixinMarketingAdmin/Scripts/screen.js"></script>
+<script>
+
+    $(window).resize(function () {
+        layout();
+    });
+
+    $(function () {
+        //scrrenVM.getActivityAwardLog(@Model.AppRedPackageActivity.Id)
+        //setTimeout(function () {
+        //scrrenVM.layout();
+        //}, 100);
+        layout();
+        qrCode(@Model.AppRedPackageActivity.Id);
+        _setInterval(@Model.AppRedPackageActivity.Id);
+
+    });
+
+</script>

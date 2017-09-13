@@ -1,0 +1,66 @@
+﻿@model Senparc.Areas.Admin.Models.VD.AdminUserInfo_EditVD
+@{
+    ViewBag.Title = "{0}管理员".With(Model.IsEdit ? "编辑" : "新增");
+}
+@section breadcrumbs{
+    <li>
+        <a href="@Url.Action("Index", "AdminUserInfo")">管理员列表</a>
+    </li>
+    <li>
+        @ViewBag.Title
+    </li>
+}
+@using (Html.ContentBox(ViewBag.Title as string))
+{
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.AdminUserInfo.Id)
+
+        <div class="form-group">
+            <label class="control-label">用户名</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.AdminUserInfo.UserName, new { @class = "form-control", placeholder = "用户名" })
+                @Html.ValidationMessageFor(model => model.AdminUserInfo.UserName)
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="control-label">性别</span>
+            <div class="input-icon icon-right">
+                <label>
+                    @Html.DropDownListFormEnumFor(m => m.AdminUserInfo.Sex, typeof(Sex))
+                    @Html.ValidationMessageFor(model => model.AdminUserInfo.Sex)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">真实姓名</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.AdminUserInfo.RealName, new { @class = "form-control", placeholder = "真实姓名" })
+                @Html.ValidationMessageFor(model => model.AdminUserInfo.RealName)
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">电话</label>
+            <span class="input-icon icon-right">
+                @Html.TextBoxFor(m => m.AdminUserInfo.Phone, new { @class = "form-control", placeholder = "电话" })
+                @Html.ValidationMessageFor(model => model.AdminUserInfo.Phone)
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">密码</label>
+            <span class="input-icon icon-right">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password)<br />
+                注：新增必须填写密码，如果留空则不修改密码
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">备注：</label>
+            <span class="input-icon icon-right">
+                @Html.TextAreaFor(m => m.AdminUserInfo.Note, new { @class = "form-control col-md-4 noteWidth_Edit", rows = "8" })
+                @Html.ValidationMessageFor(model => model.AdminUserInfo.Note)
+            </span>
+        </div>
+        <input type="submit" class=" btn btn-blue" value="保存" />
+    }
+}

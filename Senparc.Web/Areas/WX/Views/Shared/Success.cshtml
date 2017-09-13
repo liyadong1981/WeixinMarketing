@@ -1,0 +1,20 @@
+﻿@model Senparc.Core.Models.VD.SuccessVD
+@{
+    Layout = "~/Areas/WX/Views/Shared/_Empty.cshtml";
+    ViewBag.Title = "修改";
+}
+@section HeaderContent{
+}
+@section scripts{
+    <script>
+        setTimeout(function () {
+            location.href = '/WX' + location.search;
+        }, 3000);
+    </script>
+}
+<div class="page">
+    <div class="check">
+        <img src="~/Areas/WX/Content/images/right.png" />
+        <p>@Model.Message</p>
+    </div>
+</div>
